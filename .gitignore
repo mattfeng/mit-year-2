@@ -4,3 +4,4 @@ __pycache__/
 *.py[aoc]
 *.zip
 zips/
+.vscode/
