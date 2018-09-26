@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+from __future__ import print_function
 import sys
 
 base_idx = {
@@ -27,7 +28,6 @@ def seqalignDP(seq1, seq2, subst_matrix, gap_pen):
         F[0][j] = 0 - j * gap_pen
         TB[0][j] = PTR_GAP1 # indicates a gap in seq1
 
-    # YOUR CODE HERE
     # Fill in the dynamic programming tables F and TB, starting at [1][1]
     # Hints: The first row and first column of the table F[i][0] and F[0][j] are dummies
     #        (see for illustration Durbin p.21, Figure 2.5, but be careful what you
@@ -46,6 +46,7 @@ def seqalignDP(seq1, seq2, subst_matrix, gap_pen):
             opt2 = F[i - 1][j] - gap_pen # i aligns with gap, so we want to align remainder of seq1
             opt3 = F[i][j - 1] - gap_pen # j aligns with gap, so we want to align remainder of seq2
             F[i][j], TB[i][j] = max((opt1, PTR_BASE), (opt2, PTR_GAP2), (opt3, PTR_GAP1), key=lambda x: x[0])
+            # F[i][j], TB[i][j] = min((opt1, PTR_BASE), (opt2, PTR_GAP2), (opt3, PTR_GAP1), key=lambda x: x[0])
 
     return F[len(seq1)][len(seq2)], F, TB
 
@@ -97,6 +98,15 @@ S = [
 ]
 gap_pen = 4
 
+# S = [
+#     # A   G   C   T
+#     [0, 1, 2, 2], # A
+#     [1, 0, 2, 2], # G
+#     [2, 2, 0, 1], # C
+#     [2, 2, 1, 0]  # T
+# ]
+# gap_pen = -4
+
 def main():
     # parse commandline
     if len(sys.argv) < 3:
@@ -111,11 +121,21 @@ def main():
 
     score, F, TB = seqalignDP(seq1, seq2, S, gap_pen)
 
-    print(f"Score: {score}")
+    print("Score: %d" % score)
 
     s1, s2 = traceback(seq1, seq2, TB)
     print(s1)
     print(s2)
+
+    print("F(i, j):")
+
+    for f in F:
+        print("".join(map(lambda x: "%6s" % x, f)))
+
+    print("Traceback:")
+
+    for tb in TB:
+        print("\t".join(map(str, tb)))
 
 if __name__ == "__main__":
     main()

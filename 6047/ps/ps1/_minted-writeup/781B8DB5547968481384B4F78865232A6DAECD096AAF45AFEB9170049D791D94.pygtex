@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{F}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{],} \PYG{n}{TB}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb}{min}\PYG{p}{((}\PYG{n}{opt1}\PYG{p}{,} \PYG{n}{PTR\PYGZus{}BASE}\PYG{p}{),}
+                        \PYG{p}{(}\PYG{n}{opt2}\PYG{p}{,} \PYG{n}{PTR\PYGZus{}GAP2}\PYG{p}{),}
+                        \PYG{p}{(}\PYG{n}{opt3}\PYG{p}{,} \PYG{n}{PTR\PYGZus{}GAP1}\PYG{p}{),} \PYG{n}{key}\PYG{o}{=}\PYG{k}{lambda} \PYG{n}{x}\PYG{p}{:} \PYG{n}{x}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{])}
+
+\PYG{n}{S} \PYG{o}{=} \PYG{p}{[}
+   \PYG{c+c1}{\PYGZsh{} A  G  C  T}
+    \PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{],} \PYG{c+c1}{\PYGZsh{} A}
+    \PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{],} \PYG{c+c1}{\PYGZsh{} G}
+    \PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{],} \PYG{c+c1}{\PYGZsh{} C}
+    \PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{]}  \PYG{c+c1}{\PYGZsh{} T}
+\PYG{p}{]}
+
+\PYG{n}{gap\PYGZus{}pen} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{4} \PYG{c+c1}{\PYGZsh{} add penalty instead of subtract}
+\end{Verbatim}

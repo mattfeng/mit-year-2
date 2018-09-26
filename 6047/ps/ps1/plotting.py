@@ -284,7 +284,8 @@ class Gnuplot:
             return  
         
         # configure 
-        print >>self.stream, "set mouse"
+        # print >>self.stream, "set mouse"
+        print >>self.stream, "set terminal png"
         print >>self.stream, "set mxtics"
         print >>self.stream, "set mytics"
         print >>self.stream, "set mztics"

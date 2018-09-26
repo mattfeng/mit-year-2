@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{S} \PYG{o}{=} \PYG{p}{[}
+    \PYG{c+c1}{\PYGZsh{} A   G   C   T}
+    \PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{],} \PYG{c+c1}{\PYGZsh{} A}
+    \PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{],} \PYG{c+c1}{\PYGZsh{} G}
+    \PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{],} \PYG{c+c1}{\PYGZsh{} C}
+    \PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{]}  \PYG{c+c1}{\PYGZsh{} T}
+\PYG{p}{]}
+\PYG{n}{gap\PYGZus{}pen} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{4}
+\end{Verbatim}
