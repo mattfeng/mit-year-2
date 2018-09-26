@@ -135,10 +135,76 @@ mouse HoxA13 and HoxD13 divergence.
 \section{Sequence hashing and dotplot visualization}
 
 \subsection*{a. Exact 30-mers}
-\subsection*{b. Exact 100-mers}
-\subsection*{c. 60-mers}
-\subsection*{d. 90-mers}
-\subsection*{e. 120-mers}
+
+\begin{verbatim}
+$ python ps1-dotplot.py human-hoxa-region.fa \
+> mouse-hoxa-region.fa human-mouse-hoxa-30-mer.png
+reading sequences
+hashing seq1...
+hashing seq2...
+62829 hits found
+making plot...
+24.70197% hits on diagonal
+\end{verbatim}
+
+\subsection*{b. Variations}
+\subsubsection*{i. Exact 100-mers}
+\begin{verbatim}
+$ python ps1-dotplot.py human-hoxa-region.fa \
+> mouse-hoxa-region.fa human-mouse-hoxa-100-mer.png
+reading sequences
+hashing seq1...
+hashing seq2...
+1198 hits found
+making plot...
+100.00000% hits on diagonal
+\end{verbatim}
+
+\subsubsection*{ii. 60-mers}
+\begin{verbatim}
+$ python ps1-dotplot.py human-hoxa-region.fa \
+> mouse-hoxa-region.fa human-mouse-hoxa-60-mer.png
+reading sequences
+hashing seq1...
+hashing seq2...
+23933 hits found
+making plot...
+38.74149% hits on diagonal
+\end{verbatim}
+
+\subsubsection*{iii. 90-mers}
+\begin{verbatim}
+$ python ps1-dotplot.py human-hoxa-region.fa \
+> mouse-hoxa-region.fa human-mouse-hoxa-90-mer.png
+reading sequences
+hashing seq1...
+hashing seq2...
+8887 hits found
+making plot...
+93.85619% hits on diagonal
+\end{verbatim}
+
+\subsubsection*{iv. 120-mers}
+\begin{verbatim}
+$ python ps1-dotplot.py human-hoxa-region.fa \
+> mouse-hoxa-region.fa human-mouse-hoxa-120-mer.png
+reading sequences
+hashing seq1...
+hashing seq2...
+6044 hits found
+making plot...
+82.13104% hits on diagonal
+\end{verbatim}
+
+\subsubsection*{v. 100-mers with mismatches}
+\begin{verbatim}
+$ python ps1-dotplot.py human-hoxa-region.fa \
+> mouse-hoxa-region.fa human-mouse-hoxa-100-mer-mismatch.png
+\end{verbatim}
+
+\subsection*{c. Specificity to the diagonal}
+\subsection*{d. Sensitivity vs. Specificity}
+\subsection*{e. Inversions}
 
 \section{HMMs for GC-rich regions: State durations and limitations}
 

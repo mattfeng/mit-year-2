@@ -130,48 +130,62 @@ def main():
     file2 = sys.argv[2]
     plotfile = sys.argv[3]
 
-
-
     # read sequences
     print "reading sequences"
     seq1 = readSeq(file1)
     seq2 = readSeq(file2)
 
+    # Length and skip of hash key
 
-    # length of hash key
-    kmerlen = 30
+    # B0. Exact 30-mers
+    # kmerlen = 30
+    # kmerskip = 1
+
+    # Bi. Exact 100-mers
+    # kmerlen = 100
+    # kmerskip = 1
+
+    # Bii. 60-mers, every other base
+    # kmerlen = 60
+    # kmerskip = 2
+
+    # Biii. 90-mers, every third base
+    # kmerlen = 90
+    # kmerskip = 3
+
+    # Biv. 120-mers, every fourth base
+    kmerlen = 120
+    kmerskip = 4
 
     # hash table for finding hits
     lookup = {}
 
     # store sequence hashes in hash table
     print "hashing seq1..."
-    for i in xrange(len(seq1) - kmerlen + 1):
-        key = seq1[i:i+kmerlen]
+    for i in xrange(0, len(seq1) - kmerlen + 1):
+        key = seq1[i:i + kmerlen]
+        key = key[::kmerskip]
         lookup.setdefault(key, []).append(i)
-
 
 
     # look up hashes in hash table
     print "hashing seq2..."
     hits = []
-    for i in xrange(len(seq2) - kmerlen + 1):
-        key = seq2[i:i+kmerlen]
+    for i in xrange(0, len(seq2) - kmerlen + 1):
+        key = seq2[i:i + kmerlen]
+        key = key[::kmerskip]
 
         # store hits to hits list
         for hit in lookup.get(key, []):
             hits.append((i, hit))
 
-    #
     # hits should be a list of tuples
     # [(index1_in_seq2, index1_in_seq1),
     #  (index2_in_seq2, index2_in_seq1),
     #  ...]
-    #
 
     print "%d hits found" % len(hits)
     print "making plot..."
     p = makeDotplot(plotfile, hits)
-
 
 main()
