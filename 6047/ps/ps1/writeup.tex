@@ -197,14 +197,67 @@ making plot...
 \end{verbatim}
 
 \subsubsection*{v. 100-mers with mismatches}
-\begin{verbatim}
-$ python ps1-dotplot.py human-hoxa-region.fa \
-> mouse-hoxa-region.fa human-mouse-hoxa-100-mer-mismatch.png
-\end{verbatim}
+In order to implement this, I would first hash every sixth
+base in a length of 100 monomers, and find the hits 
+based on the simple every sixth base heuristic. Afterwards,
+however, I would filter each hit in linear time to determine
+if the hit satisfies the constraint that only two mismatch
+for every contiguous block of six. Checking for this
+additional constraint takes ~$100$ operations per hit,
+and with fewer than $10,000,000$ hits, this is computationally
+feasible on a modern computer.
 
 \subsection*{c. Specificity to the diagonal}
+
+
 \subsection*{d. Sensitivity vs. Specificity}
+
+
 \subsection*{e. Inversions}
+The inversion ranges from indices $[54549, 290751)$. The
+inversion can be found by checking the reverse of every 200-mer
+against the original order 200-mer hashes, and look for a
+large section of matches. We can then look at the list of
+hits and find the first in the large chunk, and find the last
+as well.
+
+\begin{minted}{python}
+# to find the last in the large chunk of hits
+for i in xrange(len(seq2) - 1, -1, -1):
+    key = seq2[i:i + kmerlen]
+    key = key[::kmerskip]
+    key = invert(key)
+
+    # store hits to hits list
+    any_hits = lookup.get(key, [])
+    if len(any_hits) != 0:
+        chain.append(i)
+        if len(chain) > 50:
+            print(max(chain))
+            quit()
+    else:
+        chain = []
+
+# to find the first in the large chunk of hits
+for i in xrange(0, len(seq2) - kmerlen + 1):
+    key = seq2[i:i + kmerlen]
+    key = key[::kmerskip]
+    key = invert(key)
+
+    # store hits to hits list
+    any_hits = lookup.get(key, [])
+    if len(any_hits) != 0:
+        chain.append(i)
+        if len(chain) > 50:
+            print(min(chain))
+            quit()
+    else:
+        chain = []
+\end{minted}
+
+\begin{figure}
+\includegraphics[width=\textwidth]{./human-hoxa-inverted.png}
+\end{figure}
 
 \section{HMMs for GC-rich regions: State durations and limitations}
 

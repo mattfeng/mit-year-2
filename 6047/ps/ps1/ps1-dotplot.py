@@ -35,11 +35,9 @@
 # Much of it is copied from another project and is unrelated.
 #
 
-
-
 import sys, random
 import plotting
-
+import string
 
 def readSeq(filename):
     """reads in a FASTA sequence"""
@@ -53,7 +51,6 @@ def readSeq(filename):
         seq.append(line.rstrip())
 
     return "".join(seq)
-
 
 def quality(hits):
     """determines the quality of a list of hits"""
@@ -73,7 +70,6 @@ def quality(hits):
             goodhits.append(hit)
 
     return goodhits
-
 
 def makeDotplot(filename, hits):
     """generate a dotplot from a list of hits
@@ -108,6 +104,9 @@ def makeDotplot(filename, hits):
 
     return p
 
+def invert(s):
+    translate = string.maketrans("ACGT", "TGCA")
+    return s.translate(translate)[::-1]
 
 def main():
 
@@ -154,8 +153,16 @@ def main():
     # kmerskip = 3
 
     # Biv. 120-mers, every fourth base
-    kmerlen = 120
-    kmerskip = 4
+    # kmerlen = 120
+    # kmerskip = 4
+    
+    # Bv. 100-mers, at most 2 per 6 mismatch
+    # kmerlen = 100
+    # kmerskip = 6
+
+    # E. 200-mers, finding inversions
+    kmerlen = 200
+    kmerskip = 1
 
     # hash table for finding hits
     lookup = {}
@@ -171,13 +178,26 @@ def main():
     # look up hashes in hash table
     print "hashing seq2..."
     hits = []
-    for i in xrange(0, len(seq2) - kmerlen + 1):
+    chain = []
+    # for i in xrange(0, len(seq2) - kmerlen + 1):
+    for i in xrange(len(seq2) - 1, -1, -1):
         key = seq2[i:i + kmerlen]
         key = key[::kmerskip]
+        key = invert(key)
 
         # store hits to hits list
-        for hit in lookup.get(key, []):
+        any_hits = lookup.get(key, [])
+        if len(any_hits) != 0:
+            chain.append(i)
+            if len(chain) > 50:
+                print(max(chain))
+                quit()
+        else:
+            chain = []
+
+        for hit in any_hits:
             hits.append((i, hit))
+
 
     # hits should be a list of tuples
     # [(index1_in_seq2, index1_in_seq1),

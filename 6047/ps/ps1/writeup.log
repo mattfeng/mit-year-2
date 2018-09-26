@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.12)  26 SEP 2018 01:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.12)  26 SEP 2018 02:06
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -353,68 +353,77 @@ Underfull \hbox (badness 10000) in paragraph at lines 46--50
 {/usr/local/texlive/2018basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 \openout3 = `writeup.pyg'.
 
- (./_minted-writeup/781B8DB5547968481384B4F78865232A6DAECD096AAF45AFEB9170049D791D94.pygtex) [2] [3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 238--244
+ (./_minted-writeup/781B8DB5547968481384B4F78865232A6DAECD096AAF45AFEB9170049D791D94.pygtex) [2] [3]
+\openout3 = `writeup.pyg'.
+
+ (./_minted-writeup/8A76CD134E338679E9DD0542E41272326DAECD096AAF45AFEB9170049D791D94.pygtex [4])
+<./human-hoxa-inverted.png, id=25, 481.8pt x 361.35pt>
+File: ./human-hoxa-inverted.png Graphic file (type png)
+<use ./human-hoxa-inverted.png>
+Package pdftex.def Info: ./human-hoxa-inverted.png  used on input line 259.
+(pdftex.def)             Requested size: 345.0pt x 258.75476pt.
+ [5]
+Underfull \hbox (badness 10000) in paragraph at lines 291--297
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 245--251
+Underfull \hbox (badness 10000) in paragraph at lines 298--304
+
+ []
+
+[6 <./human-hoxa-inverted.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 305--307
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 252--254
+Underfull \hbox (badness 10000) in paragraph at lines 316--322
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 263--269
-
- []
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 270--276
+Underfull \hbox (badness 10000) in paragraph at lines 323--329
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 277--279
+Underfull \hbox (badness 10000) in paragraph at lines 330--332
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 292--298
+Underfull \hbox (badness 10000) in paragraph at lines 345--351
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 299--305
+Underfull \hbox (badness 10000) in paragraph at lines 352--358
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 306--308
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 359--361
 
  []
 
-[6] [7] (./writeup.aux)
+[8] (./writeup.aux)
 runsystem(rm writeup.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 6103 strings out of 494091
- 102489 string characters out of 6163523
- 225775 words of memory out of 5000000
- 9647 multiletter control sequences out of 15000+600000
+ 6117 strings out of 494091
+ 103006 string characters out of 6163523
+ 225848 words of memory out of 5000000
+ 9656 multiletter control sequences out of 15000+600000
  12185 words of font info for 48 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  37i,6n,35p,869b,334s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on writeup.pdf (7 pages, 171750 bytes).
+Output written on writeup.pdf (8 pages, 179963 bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
- 63 compressed objects within 1 object stream
+ 93 PDF objects out of 1000 (max. 8388607)
+ 65 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
