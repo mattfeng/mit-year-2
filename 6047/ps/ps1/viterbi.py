@@ -12,7 +12,7 @@ base_idx = { 'A' : 0, 'G' : 1, 'C' : 2, 'T' : 3 }
 state_idx = { '+' : 0, '-' : 1 }
 
 # initial distribution over states, i.e. probability of starting in state k
-init_dist = [0.5,0.5]
+init_dist = [0.5, 0.5]
 
 # transition probabilities
 tr = [
@@ -20,7 +20,6 @@ tr = [
     [ 0.99, 0.01 ], # from+
     [ 0.01, 0.99 ]  # from-
 ]
-
 
 # emission probabilities
 em = [
@@ -30,50 +29,51 @@ em = [
 ]
 
 ###############################################################################
-# VITERBI ALGORITHM (you must complete)
+# VITERBI ALGORITHM
 # Note: The length of the sequences we are dealing with is large enough that it
 #       is necessary to use log-probabilities for numerical stability. You will
 #       need to adapt the formulae accordingly.
 ###############################################################################
 
 def viterbi(X):
-    """Returns the Viterbi path for the emission sequence X.
+    """
+    Returns the Viterbi path for the emission sequence X.
     X should be a list of integers, 0=A, 1=G, 2=C, 3=T.
     The returned Y is a list of integers, 0=High-GC, 1=Low-GC.
     """
 
-    N = len(tr)
+    N = len(tr) # N is the number of states
     L = len(X)
     assert len(em) == N
 
-    V = [[0]*N for _ in xrange(L)]
-    TB = [[0]*N for _ in xrange(L)]
+    V = [[0] * N for _ in xrange(L)]
+    TB = [[0] * N for _ in xrange(L)] # L x N matrix
     
-    for i in xrange(0,L):
-        Vprev = []
+    for i in xrange(0, L): # iterate over every symbol in emission seq
+        Vprev = [] # array of maximums from the previous layer
         if i == 0:
             Vprev = [log(pk0) for pk0 in init_dist]
         else:
-            Vprev = V[i-1]
+            Vprev = V[i - 1]
+        
+        cur_symb = X[i] # the current emitted symbol
 
-        for k in xrange(N):
-            pass
-            # YOUR CODE HERE
-            # Set V[i][k] to the appropriate value for the Viterbi matrix, based
-            #  on Vprev (V[i-1]) and the model parameters.
-            # Set TB[i][k] to the selected previous state (0 or 1 corresponding
-            #  to + or -)
-            # To receive full credit, your code should in theory work on any
-            #  valid emission and transition matrices, not just the ones hard-
-            #  coded into this program.
-            # See note about log probabilities above.
+        for state in xrange(N):
+            # Set V[i][state] to the appropriate value for the Viterbi
+            # matrix, based on Vprev (V[i - 1]) and the model parameters.
+            max_val, max_state = max([(log(tr[prev][state]) + Vprev[prev], prev)
+                                      for prev in xrange(N)], key=lambda x: x[0])
+            V[i][state] = log(em[state][cur_symb]) + max_val
 
+            # Set TB[i][state] to the selected previous state (0 or 1
+            # corresponding to + or -)
+            TB[i][state] = max_state
 
     # perform traceback and return the predicted hidden state sequence
     Y = [-1 for i in xrange(L)]
-    _, yL = max([ (V[L-1][k], k) for k in xrange(N)])
+    _, yL = max([(V[L-1][k], k) for k in xrange(N)])
     Y[L-1] = yL
-    for i in xrange(L-2,-1,-1):
+    for i in xrange(L-2, -1, -1):
         Y[i] = TB[i+1][Y[i+1]]
     return Y
 
