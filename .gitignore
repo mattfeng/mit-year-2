@@ -1,5 +1,4 @@
 .DS_Store
-soln/
 __pycache__/
 *.py[aoc]
 *.zip

@@ -17,6 +17,9 @@ def get_actors_with_bacon_number(data, n, paths=False):
                 actors_w_bacon_num[i].add(a2)
             if a2 in actors_w_bacon_num[i - 1] and a1 not in all_actors:
                 actors_w_bacon_num[i].add(a1)
+        
+        if len(actors_w_bacon_num[i]) == 0: # short circuit if impossible
+            return set()
     return actors_w_bacon_num[n]
 
 def get_bacon_path(data, actor_id):
@@ -106,7 +109,7 @@ if __name__ == '__main__':
     # print(get_actors_with_bacon_number(tinydb, 1))
     # print(get_actors_with_bacon_number(tinydb, 2))
     # print(list(map(id2name, get_actors_with_bacon_number(smalldb, 3))))
-    # print(get_actors_with_bacon_number(smalldb, 4))
+    print(get_actors_with_bacon_number(smalldb, 400))
     # print(list(map(id2name, get_actors_with_bacon_number(largedb, 5))))
     # print(list(map(id2name, get_actors_with_bacon_number(largedb, 6))))
     # print(get_bacon_path(tinydb, 46866))
@@ -115,8 +118,8 @@ if __name__ == '__main__':
     # print(list(map(id2name, get_bacon_path(largedb, name2id("Anton Radacic")))))
     # print(list(map(id2name, get_path(largedb, name2id("Christina Ricci"), name2id("Anton Radacic")))))
     # print(list(map(id2name, get_path(largedb, name2id("Al Hallett"), name2id("Robert Duvall")))))
-    print(list(map(id2movie, get_movie_path(largedb, get_path(largedb, name2id("Sven Batinic"), name2id("Jean Speegle Howard"))))))
-    print(list(map(id2movie, get_movie_path(largedb, get_path(largedb, name2id("Bruce McGill"), name2id("Mick Blue"))))))
+    # print(list(map(id2movie, get_movie_path(largedb, get_path(largedb, name2id("Sven Batinic"), name2id("Jean Speegle Howard"))))))
+    # print(list(map(id2movie, get_movie_path(largedb, get_path(largedb, name2id("Bruce McGill"), name2id("Mick Blue"))))))
 
     # additional code here will be run only when lab.py is invoked directly
     # (not when imported from test.py), so this is a good place to put code

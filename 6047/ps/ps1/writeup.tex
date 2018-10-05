@@ -139,62 +139,72 @@ mouse HoxA13 and HoxD13 divergence.
 \begin{verbatim}
 $ python ps1-dotplot.py human-hoxa-region.fa \
 > mouse-hoxa-region.fa human-mouse-hoxa-30-mer.png
-reading sequences
-hashing seq1...
-hashing seq2...
 62829 hits found
-making plot...
 24.70197% hits on diagonal
 \end{verbatim}
+
+The off diagonal hits formed a grid like shape in the
+graph, which means that hits were found in a steady,
+repeated pattern. These hits that were not along the 
+diagonal could possibly be promoter sequences and oriC
+locations, which appear repeatedly in a DNA sequence.
+
+Matches along the diagonal are more likely to be ``correct'',
+or orthologous alignments because we reason that the two
+sequences we want to align are reasonably related, and so
+differences between the two should not span a large distance,
+i.e. pieces that were related previously should still be
+in close proximity to their origin, and if both sequences
+come from the same origin, the hits should be near the same place,
+which appears as ``along the diagonal'' in our graph.
 
 \subsection*{b. Variations}
 \subsubsection*{i. Exact 100-mers}
 \begin{verbatim}
 $ python ps1-dotplot.py human-hoxa-region.fa \
 > mouse-hoxa-region.fa human-mouse-hoxa-100-mer.png
-reading sequences
-hashing seq1...
-hashing seq2...
 1198 hits found
-making plot...
 100.00000% hits on diagonal
 \end{verbatim}
+Many fewer hits were found, so the graph looked
+particularly sparse, but all the hits that were found
+were along the diagonal.
 
 \subsubsection*{ii. 60-mers}
 \begin{verbatim}
 $ python ps1-dotplot.py human-hoxa-region.fa \
 > mouse-hoxa-region.fa human-mouse-hoxa-60-mer.png
-reading sequences
-hashing seq1...
-hashing seq2...
 23933 hits found
-making plot...
 38.74149% hits on diagonal
 \end{verbatim}
+Accordingly, 60-mers had more hits than 100-mers and
+fewer hits than exact 30-mers because of the increased
+length, but had many more than the 100-mers because of
+the flexibility of only every other symbol needing to
+match.
 
 \subsubsection*{iii. 90-mers}
 \begin{verbatim}
 $ python ps1-dotplot.py human-hoxa-region.fa \
 > mouse-hoxa-region.fa human-mouse-hoxa-90-mer.png
-reading sequences
-hashing seq1...
-hashing seq2...
 8887 hits found
-making plot...
 93.85619% hits on diagonal
 \end{verbatim}
+As a length of 90 is large, the number of hits decreased
+correspondingly; however, we had many more hits than the
+exact 100-mer again because of the requirement that only
+every third base match, rather than every base.
 
 \subsubsection*{iv. 120-mers}
 \begin{verbatim}
 $ python ps1-dotplot.py human-hoxa-region.fa \
 > mouse-hoxa-region.fa human-mouse-hoxa-120-mer.png
-reading sequences
-hashing seq1...
-hashing seq2...
 6044 hits found
-making plot...
 82.13104% hits on diagonal
 \end{verbatim}
+The number of hits decreased once again, and the specificity
+decreased as well, since we were checking too few bases along
+the entire k-mer.
 
 \subsubsection*{v. 100-mers with mismatches}
 In order to implement this, I would first hash every sixth
@@ -208,13 +218,33 @@ and with fewer than $10,000,000$ hits, this is computationally
 feasible on a modern computer.
 
 \subsection*{c. Specificity to the diagonal}
-
+Having the 90-mer that matched every third base was the most
+specific to the diagonal, having $93.86\%$ of the hits be
+located along the diagonal. This is likely due to the right
+balance of the length of the k-mer we are trying to hit and
+the spacing between each monomer we actually check for
+equivalence. For a 120-mer, there were many more options in
+between the 30 bases that we checked to match, and so fewer
+were specific to the diagonal. With the 60-mers, we
+still only checked quite a short length of sequence for
+alignment, which allowed for many more substrings to match,
+which also resulted in a lower specificity.
 
 \subsection*{d. Sensitivity vs. Specificity}
-
+If the length of the k-mer we are hashing is low, then we
+get many more hits (sensitivity increases), but a fewer
+percentage of those fall along the diagonal, because we
+are too lenient with our matching. Likewise, if the length
+of the k-mer is too long, then most matches we have are along
+the diagonal, but we have much fewer matches (specificity
+is much higher). Hashing only every $n$th symbol in a sequence
+allows us to match more hits; the larger $n$ is, the more
+hits we are likely to find (because we allow for many more
+single symbol mismatches). In other words, increasing $n$
+trades specificity for sensitivity.
 
 \subsection*{e. Inversions}
-The inversion ranges from indices $[54549, 290751)$. The
+The inversion ranges from indices {\tt [54549, 290751)}. The
 inversion can be found by checking the reverse of every 200-mer
 against the original order 200-mer hashes, and look for a
 large section of matches. We can then look at the list of
@@ -302,7 +332,7 @@ High-GC base composition: A=20.51\% G=29.18\% C=29.40\% T=20.91\%\\
 Low-GC mean region length:  220\\
 Low-GC base composition: A=29.62\% G=20.66\% C=20.20\% T=29.52\%\\
 
-\noindent Accuracy: 71.96\%\\
+\noindent >> Accuracy: 71.96\%\\
 }
 
 In mystery 1, the distribution of authoritative state
@@ -327,7 +357,7 @@ High-GC base composition: A=20.56\% G=29.15\% C=29.46\% T=20.83\%\\
 Low-GC mean region length:  212\\
 Low-GC base composition: A=29.16\% G=20.45\% C=20.56\% T=29.83\%\\
 
-\noindent Accuracy: 68.80\%\\
+\noindent >> Accuracy: 68.80\%\\
 }
 
 In mystery 2, the distribution of authoritative state
@@ -356,7 +386,7 @@ High-GC base composition: A=20.56\% G=29.05\% C=29.84\% T=20.55\%\\
 Low-GC mean region length:  207\\
 Low-GC base composition: A=29.10\% G=20.46\% C=20.53\% T=29.91\%\\
 
-\noindent Accuracy: 67.72\%\\
+\noindent >> Accuracy: 67.72\%\\
 }
 
 In mystery 3, the distribution of authoritative state durations was
@@ -374,19 +404,36 @@ exceeded $200$; however, the Viterbi decoding consistently
 determined sequences with durations greater than $200$.
 
 \subsection*{d. Retraining the HMM parameters}
-
+Even if we had correctly annotated sequences for the
+mystery sequences, I do not believe that performance
+of the Viterbi algorithm, using the supervised learning
+training procedure discussed in class, would improve.
+The reason is that all the authoritative sequences
+had a mean duration of around 100; to get the MLE for
+this mean duration, the transition probabilities $a_{kl}$
+would be assigned the same (or very similar) values to
+they are now, because the expected value of the transition
+probability is the mean value of the actual durations.
+The problem steps from our topological assumption that
+durations depend only on the single previous state, which
+leads to an assumed geometric or exponential distribution,
+rather than the true distribution.
 
 \subsection*{e. GENSCAN}
-
+GENSCAN overcomes the inherent assumption of Markov Chains
+that duration distributions are geometric by {\it allowing
+the probability of transition to depend on the amount
+of time that the model has been in a certain state}; in
+other words, GENSCAN takes advantage of a semi-Markov property,
+also known as a hidden semi-Markov model. Hidden semi-Markov
+models allow for any state duration distribution to be modeled,
+rather than be confined to geometric distributions. We can
+implement HSMMs by defining transition and emission probabilities
+as functions of time rather than constants, and keep a 
+record of the current duration when computing the parameters.
 
 \section{Final project preparation}
 
-\subsection*{a. Skillset}
-
-\subsection*{b. Research experience}
-
-\subsection*{c. Interests}
-
-\subsection*{d. Project types}
+The responses to this question are in {\tt FengMatthew\_Profile.docx}.
 
 \end{document}

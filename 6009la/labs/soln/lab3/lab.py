@@ -28,12 +28,13 @@ class MinesGame:
         """
         self.dimensions = [num_rows, num_cols]
         self.state = "ongoing"
-        self.mask = [[False] * num_cols] * num_rows
-        self.board = [[0] * num_cols] * num_rows
-        for x in range(num_rows):
-            for y in range(num_cols):
-                if [x,y] in bombs or (x,y) in bombs:
-                    self.board[x][y] = '.'
+        self.mask = [[False for _ in num_cols] for __ in num_rows]
+        self.board = [[0 for _ in num_cols] for __ in num_rows]
+        for r in range(num_rows):
+            for c in range(num_cols):
+                if [r, c] in bombs or (r, c) in bombs:
+                    self.board[r][c] = '.'
+
         for r in range(num_rows):
             for c in range(num_cols):
                 if self.board[r][c] == 0:
@@ -53,10 +54,6 @@ class MinesGame:
                     if 0 <= r-1 < num_rows:
                         if 0 <= c < num_cols:
                             if self.board[r-1][c] == '.':
-                                neighbor_bombs += 1
-                    if 0 <= r < num_rows:
-                        if 0 <= c < num_cols:
-                            if self.board[r][c] == '.':
                                 neighbor_bombs += 1
                     if 0 <= r+1 < num_rows:
                         if 0 <= c < num_cols:
@@ -149,9 +146,8 @@ class MinesGame:
                [False, False, False, False]
         state: defeat
         """
-        state = self.state
-        if state == "defeat" or state == "victory":
-            self.state = state
+        # redundant code
+        if self.state in {"defeat", "victory"}:
             return 0
 
         if self.board[row][col] == '.':
@@ -159,6 +155,7 @@ class MinesGame:
             self.state = "defeat"
             return 1
 
+        offsets = 
         coord1 = [row - 1, col - 1]
         coord2 = [row - 1, col]
         coord3 = [row - 1, col + 1]
@@ -173,12 +170,11 @@ class MinesGame:
         count = 0
         for coord in [coord1, coord2, coord3, coord4,
                       coord5, coord6, coord7, coord8]:
-            if coord[0] >= 0:
-                if coord[0] < self.height:
-                    if cooef[1] >= 0:
-                        if coord[1] < self.width:
-                            count += 1
-                            self.mask[coord[0], coord[1]] = True
+            if 0 <= coord[0] < self.dimensions[0]:
+                if 0 <= coord[1] < self.dimensions[1]:
+                    if self.board[
+                    self.mask[coord[0]][coord[1]] = True
+                    count += 1
 
         self.mask[row][col] = True
 
@@ -233,7 +229,11 @@ class MinesGame:
         >>> g.render(True)
         [['.', '3', '1', ' '], ['.', '.', '1', ' ']]
         """
-        raise NotImplementedError
+        board = g.board
+        mask = g.mask
+        for r, row in enumerate(board):
+            for c, col in enumerate(row):
+                pr
 
 
     def render_ascii(self, xray=False):
