@@ -29,7 +29,7 @@ edges and return that set of edges. The algorithm will
 find the minimum cost edges to form the minimum spanning
 tree because after we remove the shortest path edges
 from the graph and then run the MST algorithm, we will
-find a true MST for the graph. By readding the shortest path edges,
+find a true MST for the graph. By re-adding the shortest path edges,
 we ensure that Jane has her shortest path, and the rest of
 the MST has minimum cost paths given the requirement that
 Jane's shortest path must be in the graph. Prim's algorithm
@@ -37,6 +37,27 @@ also runs in $O(E + V\log V)$ time with a Fibonacci heap,
 so the overall algorithm will run in $O(E + V\log V)$ time.
 
 \subsection*{(b)}
+We can build off of our start from the previous part and only
+consider the edges in our pseudo-MST as well as the $k$ edges
+with reduced cost. We want to reuse as much of our previous MST
+as possible, which consists of pieces that we are sure will be
+part of our new MST $T''$. We first break up $T'$ along any of
+$k$ edges that have reduced values. We know that each of the
+edges in the disjoint sets that we have now separated $T'$ into
+(including the disjoint set containing shortest path nodes,
+because we include a supernode that connects all of those with
+edges of weight $0$, so that they will definitely be part of
+the MST) will be part of a MST, because of the {\bf optimal substructure
+property}. After we sort the $k$ edges in $O(k\log k)$ time, we can use
+Kruskal's algorithm to reconnect the sub-MSTs considering only the
+$k$ reduced cost edges, because of the {\bf cut
+property} --- the light edges that cross the various cuts consisting
+of $(S, V - S)$ where $S$ is a disjoint set created from when we broke
+up our original MST must be among the $k$ edges, else they would
+not have been broken (or would have been part of the original MST).
+Since we only look at $k = O(V)$ edges when running Kruskal's algorithm, 
+Kruskal's algorithm runs in $O(V\log V)$ time, and thus the total
+running time of our algorithm is $O(V\log V)$.
 
 \section*{Problem 2}
 \subsection*{(a)}
@@ -67,10 +88,15 @@ Finally, for each rider $j$, we construct edge $(r_j, k)$, $\forall k \in C_j$,
 each with infinite capacity. 
 
 \subsection*{(b)}
+We make $H + 1$ copies of the graph $G$, indexed as $G^0$
+through $G^H$, 
+
 
 \subsection*{(c)}
 
+
 \subsection*{(d)}
+
 
 \end{document}
 
