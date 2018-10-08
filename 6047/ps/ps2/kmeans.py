@@ -3,12 +3,11 @@ from math import *
 from subprocess import call
 from numpy import *
 
-
 def assignPoints(tbl, ctrs):
     """Assign each of the points in tbl to the cluster with
         center in ctrs"""
 
-    ptsAsgn = [];
+    ptsAsgn = []
 
     """SOME CODE GOES HERE"""
     """make sure that your code returns a vector
@@ -28,14 +27,13 @@ def recalculateCtrs(tbl, ctrs, ptsAsgn):
 
 
 def euclideanDist(x, y):
-
     if len(x) != len(y):
-        print "x and y must be the same length"
+        print("x and y must be the same length")
         sys.exit(1)
     else:
         dist_val = 0
-        for i in xrange(len(x)):
-            dist_val = dist_val + math.pow((x[i] - y[i]),2)
+        for i in range(len(x)):
+            dist_val = dist_val + math.pow((x[i] - y[i]), 2)
 
     return math.sqrt(dist_val)
 
@@ -50,18 +48,18 @@ def plotClusters(tbl, ptMemb, cntrs, stepCnt, anLabel):
 
     p = open("./" + anLabel + "_output/dummy_table.txt", "w")
 
-    for i in xrange(len(tbl)):
-        for j in xrange(len(tbl[i])):
-            p.write(`tbl[i][j]`)
+    for i in range(len(tbl)):
+        for j in range(len(tbl[i])):
+            p.write("{}".format(tbl[i][j]))
             p.write("\t")
-        p.write(`ptMemb[i]`)
+        p.write("{}".format(ptMemb[i]))
         p.write("\n")
 
-    for i in xrange(len(cntrs)):
-        for j in xrange(len(cntrs[i])):
-            p.write(`cntrs[i][j]`);
+    for i in range(len(cntrs)):
+        for j in range(len(cntrs[i])):
+            p.write("{}".format(cntrs[i][j]))
             p.write("\t")
-        p.write("Clust" + `i`)
+        p.write("Cluster {}".format(i))
         p.write("\n")
 
     p.close()
@@ -80,7 +78,7 @@ def main():
     """Checks if we have the right number of command line arguments
        and reads them in"""
     if len(sys.argv) < 1:
-        print "you must call program as: python ./kmeans.py <datafile>"
+        print("you must call program as: python ./kmeans.py <datafile>")
         sys.exit(1)
     analysis_name = sys.argv[1]
 
@@ -90,7 +88,7 @@ def main():
     call(["mkdir", "-p", "./" + analysis_name + "_output/"])
 
     """Reads in the point data from the given tissue file"""
-    dataTable = [];
+    dataTable = []
     f = open("./" + analysis_name + "_data.txt")
     for dataLine in f:
         dataTable.append([float(str) for str in dataLine.rstrip().split("\t")])
@@ -111,8 +109,8 @@ def main():
 
         """stop criterion - when centroids' total movement after a step is below
             the threshold, stop the algorithm"""
-        stopDist = 0;
-        for i in xrange(len(newCtrs)):
+        stopDist = 0
+        for i in range(len(newCtrs)):
             stopDist = stopDist + euclideanDist(oldCtrs[i], newCtrs[i])
         if stopDist < 5:
             stopCrit = True
