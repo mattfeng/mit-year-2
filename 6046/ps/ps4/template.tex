@@ -88,15 +88,43 @@ Finally, for each rider $j$, we construct edge $(r_j, k)$, $\forall k \in C_j$,
 each with infinite capacity. 
 
 \subsection*{(b)}
-We make $H + 1$ copies of the graph $G$, indexed as $G^0$
-through $G^H$, 
-
+We make $H + 1$ copies of the graph $G$, indexed as $G^i = (V^i, E^i)$,
+where the superscript represents the number of hours
+that have elapsed (thus $i \in [0, H]$). For every airport $v^i_n \in V^i$, we
+construct edges $(v^i_n, v^{i + h_j}_m)$ with capacity $c_j$ for all flights $e_j$
+starting from airport $v_n$ and landing in airport $v_m$.
+We also construct edges $(v^i_n, v^{i + 1}_n)$ with infinite capacity to represent
+passengers who wait at the airport for their flight. Then, we connect
+all Boston airport destination nodes $t^i$ to a true sink node $t^*$, where each
+of those connecting edges has infinite capacity as well. Finally, we connect
+a source node $s$ to $v^0_n$ for every $v_n \in V$ with edge $(s, v^0_n)$ with
+capacity $c_n$, representing the number of people starting off from that airport.
+If we run max flow on this graph, we will be able to find the maximum of
+passengers that Ryde can bring to Boston, because we have encoded every possible
+travel path in our flow network.
 
 \subsection*{(c)}
-
+Since our graph will have $HV + 2$ nodes ($H$ copies of $V$ nodes, as well as $s$ and $t*$),
+and $HE + V + H$ edges ($H$ copies of $E$ edges, with $V$ edges
+connecting $s$ to all vertices in $V^0$, and $H$ edges connecting $t^i$ to $t^*$),
+for a total runtime of $O((HV + 2)(HE + V + H)^2)$, or $O((HV)(HE + V + H)^2)$.
 
 \subsection*{(d)}
-
+We can run DFS on the residual graph $G_f$ twice.
+We first run DFS once from the source $s$, keeping the directions
+in $G_f$ intact, so that we can find all the nodes that are part of
+the connected component that $s$ belongs to. We then flip the directions of
+the edges in the residual graph, and run DFS from $t$, so that we can find
+all the nodes in the connected component containing $t$. We find the
+connected components for $s$ and $t$ so that we can find the augmenting paths
+from $s$ to $t$ that are missing a single edge. We know that $s$ and $t$ must be in
+separate connected components, else the flow that we had found would not have
+been a max flow (because there would have been an augmenting path). For every node $u$ that is in $s$'s
+connected component, we want to see if we can add a flight to some node $v$ in $t$'s
+connected component --- if so, then that is a valid flight to add. DFS runs in $O(H(V + E))$
+time. Since each connected component can have at most $O(HV)$ nodes, and we want to
+compare all possible pairs, finding all possible edges that might have a valid flight
+takes $O(H^2V^2)$ time, so the total runtime of the algorithm is $O((HV)^2)$.
 
 \end{document}
 
