@@ -9,24 +9,33 @@ def assignPoints(tbl, ctrs):
     """Assign each of the points in tbl to the cluster with
         center in ctrs"""
 
-    ptsAsgn = [[] for _ in range(len(ctrs))]
+    points = []
 
     for point in tbl:
-        dists = np.array([euclideanDist(ctr, point) for ctr in ctrs])
-        cluster = np.argmin(dists)
-        ptsAsgn[cluster].append(point)
+        probs = []
+        for ctr in ctrs:
+            sigma = 10
+            prob = np.exp(-(np.linalg.norm(point - ctr) / sigma) ** 2)
+            probs.append(prob)
+        probs = np.array(probs) / sum(probs)
 
-    return ptsAsgn
+        points.append((point, probs))
+
+    return points
 
 
-def recalculateCtrs(ctrs, ptsAsgn):
+def recalculateCtrs(ctrs, points):
     """Update the centroids based on the points assigned to them"""
 
     newCtrs = [0] * len(ctrs)
 
-    for ix, cluster in enumerate(ptsAsgn):
-        centroid = np.mean(cluster, axis=0)
-        newCtrs[ix] = centroid
+    for ix in range(len(ctrs)):
+        weighted_sum = np.zeros(2)
+        total_weight = 0
+        for point, weight in points:
+            weighted_sum += point * weight[ix]
+            total_weight += weight[ix]
+        newCtrs[ix] = weighted_sum / total_weight
 
     return newCtrs
 
@@ -77,8 +86,8 @@ def plotClusters(clusters, cntrs, stepCnt, anLabel):
 def main():
     # Checks if we have the right number of command line arguments
     #   and reads them in
-    if len(sys.argv) < 1:
-        print("you must call program as: python ./kmeans.py <datafile>")
+    if len(sys.argv) < 2:
+        print("you must call program as: python fuzzykmeans.py <datafile>")
         sys.exit(1)
     analysis_name = sys.argv[1]
 
@@ -103,18 +112,17 @@ def main():
                 np.random.randint(dataMinY, dataMaxY)]
                 for _ in range(K)]
 
-    clusters = assignPoints(dataTable, newCtrs)
+    points = assignPoints(dataTable, newCtrs)
     stopCrit = False
     stepCount = 1
 
     # Performs k-means clustering, plotting the
     #   clusters at each step
     while stopCrit == False:
-        plotClusters(clusters, newCtrs, stepCount, analysis_name)
-
+        # plotClusters(clusters, newCtrs, stepCount, analysis_name)
         oldCtrs = copy.deepcopy(newCtrs)
-        newCtrs = recalculateCtrs(newCtrs, clusters)
-        clusters = assignPoints(dataTable, newCtrs)
+        newCtrs = recalculateCtrs(newCtrs, points)
+        points = assignPoints(dataTable, newCtrs)
 
         # Stop criterion - when centroids' total movement
         #   after a step is below the threshold,
@@ -127,6 +135,8 @@ def main():
             stopCrit = True
 
         stepCount += 1
+    
+    print(newCtrs)
 
 if __name__ == "__main__":
     main()
