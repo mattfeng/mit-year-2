@@ -1,27 +1,32 @@
 import sys
 from math import *
 from subprocess import call
+import numpy as np
 from numpy import *
+import copy
 
 def assignPoints(tbl, ctrs):
     """Assign each of the points in tbl to the cluster with
         center in ctrs"""
 
-    ptsAsgn = []
+    ptsAsgn = [[] for _ in range(len(ctrs))]
 
-    """SOME CODE GOES HERE"""
-    """make sure that your code returns a vector
-        that codes the cluster assignments as 0,1,and 2"""
+    for point in tbl:
+        dists = np.array([euclideanDist(ctr, point) for ctr in ctrs])
+        cluster = np.argmin(dists)
+        ptsAsgn[cluster].append(point)
 
     return ptsAsgn
 
 
-def recalculateCtrs(tbl, ctrs, ptsAsgn):
+def recalculateCtrs(ctrs, ptsAsgn):
     """Update the centroids based on the points assigned to them"""
 
     newCtrs = [0] * len(ctrs)
 
-    """SOME CODE GOES HERE"""
+    for ix, cluster in enumerate(ptsAsgn):
+        centroid = np.mean(cluster, axis=0)
+        newCtrs[ix] = centroid
 
     return newCtrs
 
@@ -37,8 +42,7 @@ def euclideanDist(x, y):
 
     return math.sqrt(dist_val)
 
-
-def plotClusters(tbl, ptMemb, cntrs, stepCnt, anLabel):
+def plotClusters(clusters, cntrs, stepCnt, anLabel):
     """generate a scatterplot of the current
        k-means cluster assignments
 
@@ -48,12 +52,9 @@ def plotClusters(tbl, ptMemb, cntrs, stepCnt, anLabel):
 
     p = open("./" + anLabel + "_output/dummy_table.txt", "w")
 
-    for i in range(len(tbl)):
-        for j in range(len(tbl[i])):
-            p.write("{}".format(tbl[i][j]))
-            p.write("\t")
-        p.write("{}".format(ptMemb[i]))
-        p.write("\n")
+    for ix, cluster in enumerate(clusters):
+        for point in cluster:
+            p.write((("{}\t" * len(point))+ "{}\n").format(*point, ix))
 
     for i in range(len(cntrs)):
         for j in range(len(cntrs[i])):
@@ -91,31 +92,35 @@ def main():
     dataTable = []
     f = open("./" + analysis_name + "_data.txt")
     for dataLine in f:
-        dataTable.append([float(str) for str in dataLine.rstrip().split("\t")])
+        dataTable.append(np.array([float(str) for str in dataLine.rstrip().split("\t")]))
     f.close()
 
     """initializes centroids, stop criterion and step counting for clustering"""
     newCtrs = [[5,0], [5,40], [5,80]]
-    ptMemb = assignPoints(dataTable, newCtrs)
+    clusters = assignPoints(dataTable, newCtrs)
     stopCrit = False
     stepCount = 1
 
-    """performs k-means clustering, plotting the clusters at each step"""
+    # Performs k-means clustering, plotting the
+    #   clusters at each step
     while stopCrit == False:
-        plotClusters(dataTable, ptMemb, newCtrs, stepCount, analysis_name)
+        plotClusters(clusters, newCtrs, stepCount, analysis_name)
 
-        """SOME CODE GOES HERE"""
+        oldCtrs = copy.deepcopy(newCtrs)
+        newCtrs = recalculateCtrs(newCtrs, clusters)
+        clusters = assignPoints(dataTable, newCtrs)
 
+        # Stop criterion - when centroids' total movement
+        #   after a step is below the threshold,
+        #   stop the algorithm
 
-        """stop criterion - when centroids' total movement after a step is below
-            the threshold, stop the algorithm"""
         stopDist = 0
         for i in range(len(newCtrs)):
             stopDist = stopDist + euclideanDist(oldCtrs[i], newCtrs[i])
         if stopDist < 5:
             stopCrit = True
 
-        stepCount = stepCount + 1
+        stepCount += 1
 
 if __name__ == "__main__":
     main()
