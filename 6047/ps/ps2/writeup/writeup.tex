@@ -1,7 +1,10 @@
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
+\usepackage[left=3cm, right=3cm, top=2cm, bottom=2cm]{geometry}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{subfig}
 
 \title{6.047 Problem Set 2 Writeup}
 \author{Matthew Feng}
@@ -113,9 +116,89 @@ model $C$.
 \subsection*{(e)}
 
 \section{K-means Clustering}
-\subsection*{(a)}
-\subsection*{(b)}
-\subsection*{(c)}
-\subsection*{(d)}
+\subsection*{(a) $k$-means implementation}
+See {\tt kmeans.py}.
+\subsection*{(b) {\tt tissue1} results}
+See Figure 1.
+\begin{figure}
+\begin{tabular}{c c}
+    \includegraphics[width=65mm]{../tissue1_plots/cluster_step1.png} & 
+    \includegraphics[width=65mm]{../tissue1_plots/cluster_step2.png} \\
+    (a) Step 1 & (b) Step 2 \\
+    \includegraphics[width=65mm]{../tissue1_plots/cluster_step3.png} & 
+    \includegraphics[width=65mm]{../tissue1_plots/cluster_step4.png} \\
+    (c) Step 3 & (d) Step 4 \\
+\end{tabular}
+\caption{Four steps of convergence for the $k$-means algorithm
+on {\tt tissue1\_data.txt}.}
+\end{figure}
+
+\subsection*{(c) Improving $k$-means}
+See Figures 2 and 3. One of the flaws of $k$-means clustering is
+that it doesn't always find the most obvious clusters if the
+initial guesses for the centroid are not good. If we look at
+Figure 2, we can see that the clusters that were found were biased
+by the initial guesses for the centroids, which led the algorithm
+to find oddly-shaped clusters instead of the ``obvious'' ones that
+we see with our own eyes. In order to remedy
+this problem, it is beneficial to run $k$-means with random initialization,
+meaning that the initial guesses for the centroids are randomly
+placed in the feature space. In particular, $k$-means can be improved
+by running many times with random initialization, and then using
+the clustering that has the lowest average distance to the centroids.
+
+\begin{figure}
+\begin{tabular}{c c}
+    \includegraphics[width=65mm]{../tissue2_plots/cluster_step1.png} & 
+    \includegraphics[width=65mm]{../tissue2_plots/cluster_step2.png} \\
+    (a) Step 1 & (b) Step 2 \\
+    \includegraphics[width=65mm]{../tissue2_plots/cluster_step3.png} & 
+    \includegraphics[width=65mm]{../tissue2_plots/cluster_step4.png} \\
+    (c) Step 3 & (d) Step 4 \\
+    \includegraphics[width=65mm]{../tissue2_plots/cluster_step5.png} & 
+    \includegraphics[width=65mm]{../tissue2_plots/cluster_step6.png} \\
+    (c) Step 5 & (d) Step 6 \\
+\end{tabular}
+\caption{Six steps of convergence for the $k$-means algorithm
+ on {\tt tissue2\_data.txt}.}
+\end{figure}
+
+\begin{figure}
+\begin{tabular}{c c}
+    \includegraphics[width=65mm]{../tissue2random_plots/cluster_step1.png} & 
+    \includegraphics[width=65mm]{../tissue2random_plots/cluster_step2.png} \\
+    (a) Step 1 & (b) Step 2 \\
+    \includegraphics[width=65mm]{../tissue2random_plots/cluster_step3.png} & \\
+    (c) Step 3 & \\
+\end{tabular}
+\caption{Three steps of convergence for the $k$-means algorithm 
+with random initialization on {\tt tissue2\_data.txt}.}
+\end{figure}
+
+\subsection*{(d) Fuzzy $k$-means}
+We can implement fuzzy $k$-means by assigning to each point in our
+dataset not a class, but a probability that it belongs to a certain
+class. We can do so by computing the probability that a certain
+point belongs to a cluster via a normal distribution (farther away
+is less probable, with a Gaussian probability dropoff). When we
+update the location of the centroids, we compute the weighted average
+of all the data points, with the weight of contribution for each
+data point weighted by the probability it belongs to the cluster.
+See {\tt fuzzykmeans.py} for the implementation.
+
+We could graphically represent the fuzzy clusters by mixing RGB colors;
+class 1 could be encoded as red, class 2 as green, and class 3 as blue.
+Depending on the probability that the point belongs do class $i$, we could
+use function (the CSS function) {\tt rgb(r, g, b)} to find a representative
+color for the probabilities.
+
+\section{Final project preparation}
+\subsection*{(b) Evaluate proposals}
+
+\subsection*{(c) Evaluate scientific papers}
+
+\subsection*{(d) Project idea}
+
+\subsection*{(e) Potential project partners}
 
 \end{document}

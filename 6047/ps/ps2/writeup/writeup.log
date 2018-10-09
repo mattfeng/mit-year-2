@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.12)  7 OCT 2018 21:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.12)  8 OCT 2018 23:37
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -9,8 +9,8 @@ LaTeX2e <2018-04-01> patch level 2
 Babel <3.18> and hyphenation patterns for 22 language(s) loaded.
 (/usr/local/texlive/2018basic/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-(/usr/local/texlive/2018basic/texmf-dist/tex/latex/base/size12.clo
-File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count80
 \c@section=\count81
@@ -23,6 +23,31 @@ File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
+) (/usr/local/texlive/2018basic/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2018/03/24 v5.7 Page Geometry
+ (/usr/local/texlive/2018basic/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+) (/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+) (/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+) (/usr/local/texlive/2018basic/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count88
+\Gm@cntv=\count89
+\c@Gm@tempcnt=\count90
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks15
 ) (/usr/local/texlive/2018basic/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2017/09/02 v2.17a AMS math features
 \@mathmargin=\skip43
@@ -32,49 +57,49 @@ For additional information on amsmath, use the `?' option.
 Package: amstext 2000/06/29 v2.01 AMS text
  (/usr/local/texlive/2018basic/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks14
-\ex@=\dimen103
+\@emptytoks=\toks16
+\ex@=\dimen111
 )) (/usr/local/texlive/2018basic/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen104
+\pmbraise@=\dimen112
 ) (/usr/local/texlive/2018basic/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count88
+\inf@bad=\count91
 LaTeX Info: Redefining \frac on input line 213.
-\uproot@=\count89
-\leftroot@=\count90
+\uproot@=\count92
+\leftroot@=\count93
 LaTeX Info: Redefining \overline on input line 375.
-\classnum@=\count91
-\DOTSCASE@=\count92
+\classnum@=\count94
+\DOTSCASE@=\count95
 LaTeX Info: Redefining \ldots on input line 472.
 LaTeX Info: Redefining \dots on input line 475.
 LaTeX Info: Redefining \cdots on input line 596.
 \Mathstrutbox@=\box26
 \strutbox@=\box27
-\big@size=\dimen105
+\big@size=\dimen113
 LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
-\macc@depth=\count93
-\c@MaxMatrixCols=\count94
+\macc@depth=\count96
+\c@MaxMatrixCols=\count97
 \dotsspace@=\muskip10
-\c@parentequation=\count95
-\dspbrk@lvl=\count96
-\tag@help=\toks15
-\row@=\count97
-\column@=\count98
-\maxfields@=\count99
-\andhelp@=\toks16
-\eqnshift@=\dimen106
-\alignsep@=\dimen107
-\tagshift@=\dimen108
-\tagwidth@=\dimen109
-\totwidth@=\dimen110
-\lineht@=\dimen111
-\@envbody=\toks17
+\c@parentequation=\count98
+\dspbrk@lvl=\count99
+\tag@help=\toks17
+\row@=\count100
+\column@=\count101
+\maxfields@=\count102
+\andhelp@=\toks18
+\eqnshift@=\dimen114
+\alignsep@=\dimen115
+\tagshift@=\dimen116
+\tagwidth@=\dimen117
+\totwidth@=\dimen118
+\lineht@=\dimen119
+\@envbody=\toks19
 \multlinegap=\skip44
 \multlinetaggap=\skip45
-\mathdisplay@stack=\toks18
+\mathdisplay@stack=\toks20
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
 ) (/usr/local/texlive/2018basic/texmf-dist/tex/latex/amsfonts/amsfonts.sty
@@ -86,62 +111,252 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 ) (/usr/local/texlive/2018basic/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2018/08/03 v2.3 Span multiple rows of a table
 \multirow@colwidth=\skip46
-\multirow@cntb=\count100
+\multirow@cntb=\count103
 \multirow@dima=\skip47
-\bigstrutjot=\dimen112
+\bigstrutjot=\dimen120
+) (/usr/local/texlive/2018basic/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2018basic/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2018basic/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+) (/usr/local/texlive/2018basic/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+ (/usr/local/texlive/2018basic/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen121
+\Gin@req@width=\dimen122
+) (/usr/local/texlive/2018basic/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+ (/usr/local/texlive/2018basic/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+ (/usr/local/texlive/2018basic/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen123
+\captionmargin@=\dimen124
+\captionwidth=\dimen125
+\caption@tempdima=\dimen126
+\caption@indent=\dimen127
+\caption@parindent=\dimen128
+\caption@hangindent=\dimen129
+)
+\c@ContinuedFloat=\count104
+)
+\c@KVtest=\count105
+\sf@farskip=\skip48
+\sf@captopadj=\dimen130
+\sf@capskip=\skip49
+\sf@nearskip=\skip50
+\c@subfigure=\count106
+\c@subfigure@save=\count107
+\c@lofdepth=\count108
+\c@subtable=\count109
+\c@subtable@save=\count110
+\c@lotdepth=\count111
+\sf@top=\skip51
+\sf@bottom=\skip52
 ) (./writeup.aux)
 \openout1 = `writeup.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Try loading font information for U+msa on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(85.35826pt, 443.57848pt, 85.35826pt)
+* v-part:(T,H,B)=(56.9055pt, 681.15898pt, 56.9055pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=443.57848pt
+* \textheight=681.15898pt
+* \oddsidemargin=13.08827pt
+* \evensidemargin=13.08827pt
+* \topmargin=-52.36449pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=59.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/local/texlive/2018basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count112
+\scratchdimen=\dimen131
+\scratchbox=\box28
+\nofMPsegments=\count113
+\nofMParguments=\count114
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count115
+\MPscratchDim=\dimen132
+\MPnumerator=\count116
+\makeMPintoPDFobject=\count117
+\everyMPtoPDFconversion=\toks22
+) (/usr/local/texlive/2018basic/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+ (/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+) (/usr/local/texlive/2018basic/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+ (/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+ (/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+))) (/usr/local/texlive/2018basic/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+ (/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+ (/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+ (/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+))) (/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2018/01/30 v0.27 Utility functions of pdfTeX for LuaTeX (HO)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 438.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+ (/usr/local/texlive/2018basic/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Try loading font information for U+msa on input line 15.
  (/usr/local/texlive/2018basic/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 12.
+LaTeX Font Info:    Try loading font information for U+msb on input line 15.
  (/usr/local/texlive/2018basic/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {/usr/local/texlive/2018basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (24.38463pt too wide) in paragraph at lines 61--71
-\OT1/cmr/m/n/12 The max-i-mum a pos-te-ri-ori es-ti-mate of class of $(\OML/cmm/m/it/12 X[]; X[]; X[]\OT1/cmr/m/n/12 ) = (\OML/cmm/m/it/12 long; medium; low\OT1/cmr/m/n/12 )$
- []
-
-
-Overfull \hbox (25.04823pt too wide) detected at line 78
-[]
- []
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 104--106
+Underfull \hbox (badness 10000) in paragraph at lines 107--109
 
  []
 
-[3] (./writeup.aux) ) 
+<../tissue1_plots/cluster_step1.png, id=15, 1003.75pt x 1003.75pt>
+File: ../tissue1_plots/cluster_step1.png Graphic file (type png)
+<use ../tissue1_plots/cluster_step1.png>
+Package pdftex.def Info: ../tissue1_plots/cluster_step1.png  used on input line 125.
+(pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
+<../tissue1_plots/cluster_step2.png, id=17, 1003.75pt x 1003.75pt>
+File: ../tissue1_plots/cluster_step2.png Graphic file (type png)
+<use ../tissue1_plots/cluster_step2.png>
+Package pdftex.def Info: ../tissue1_plots/cluster_step2.png  used on input line 126.
+(pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
+<../tissue1_plots/cluster_step3.png, id=18, 1003.75pt x 1003.75pt>
+File: ../tissue1_plots/cluster_step3.png Graphic file (type png)
+<use ../tissue1_plots/cluster_step3.png>
+Package pdftex.def Info: ../tissue1_plots/cluster_step3.png  used on input line 128.
+(pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
+<../tissue1_plots/cluster_step4.png, id=19, 1003.75pt x 1003.75pt>
+File: ../tissue1_plots/cluster_step4.png Graphic file (type png)
+<use ../tissue1_plots/cluster_step4.png>
+Package pdftex.def Info: ../tissue1_plots/cluster_step4.png  used on input line 129.
+(pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
+[2] [3 <../tissue1_plots/cluster_step1.png> <../tissue1_plots/cluster_step2.png> <../tissue1_plots/cluster_step3.png> <../tissue1_plots/cluster_step4.png>]
+<../tissue2_plots/cluster_step1.png, id=34, 1003.75pt x 1003.75pt>
+File: ../tissue2_plots/cluster_step1.png Graphic file (type png)
+<use ../tissue2_plots/cluster_step1.png>
+Package pdftex.def Info: ../tissue2_plots/cluster_step1.png  used on input line 152.
+(pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
+<../tissue2_plots/cluster_step2.png, id=35, 1003.75pt x 1003.75pt>
+File: ../tissue2_plots/cluster_step2.png Graphic file (type png)
+<use ../tissue2_plots/cluster_step2.png>
+Package pdftex.def Info: ../tissue2_plots/cluster_step2.png  used on input line 153.
+(pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
+<../tissue2_plots/cluster_step3.png, id=36, 1003.75pt x 1003.75pt>
+File: ../tissue2_plots/cluster_step3.png Graphic file (type png)
+<use ../tissue2_plots/cluster_step3.png>
+Package pdftex.def Info: ../tissue2_plots/cluster_step3.png  used on input line 155.
+(pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
+<../tissue2_plots/cluster_step4.png, id=37, 1003.75pt x 1003.75pt>
+File: ../tissue2_plots/cluster_step4.png Graphic file (type png)
+<use ../tissue2_plots/cluster_step4.png>
+Package pdftex.def Info: ../tissue2_plots/cluster_step4.png  used on input line 156.
+(pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
+<../tissue2_plots/cluster_step5.png, id=38, 1003.75pt x 1003.75pt>
+File: ../tissue2_plots/cluster_step5.png Graphic file (type png)
+<use ../tissue2_plots/cluster_step5.png>
+Package pdftex.def Info: ../tissue2_plots/cluster_step5.png  used on input line 158.
+(pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
+<../tissue2_plots/cluster_step6.png, id=39, 1003.75pt x 1003.75pt>
+File: ../tissue2_plots/cluster_step6.png Graphic file (type png)
+<use ../tissue2_plots/cluster_step6.png>
+Package pdftex.def Info: ../tissue2_plots/cluster_step6.png  used on input line 159.
+(pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
+<../tissue2random_plots/cluster_step1.png, id=40, 1003.75pt x 1003.75pt>
+File: ../tissue2random_plots/cluster_step1.png Graphic file (type png)
+<use ../tissue2random_plots/cluster_step1.png>
+Package pdftex.def Info: ../tissue2random_plots/cluster_step1.png  used on input line 168.
+(pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
+<../tissue2random_plots/cluster_step2.png, id=41, 1003.75pt x 1003.75pt>
+File: ../tissue2random_plots/cluster_step2.png Graphic file (type png)
+<use ../tissue2random_plots/cluster_step2.png>
+Package pdftex.def Info: ../tissue2random_plots/cluster_step2.png  used on input line 169.
+(pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
+<../tissue2random_plots/cluster_step3.png, id=42, 1003.75pt x 1003.75pt>
+File: ../tissue2random_plots/cluster_step3.png Graphic file (type png)
+<use ../tissue2random_plots/cluster_step3.png>
+Package pdftex.def Info: ../tissue2random_plots/cluster_step3.png  used on input line 171.
+(pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
+ [4] [5 <../tissue2_plots/cluster_step1.png> <../tissue2_plots/cluster_step2.png> <../tissue2_plots/cluster_step3.png> <../tissue2_plots/cluster_step4.png> <../tissue2_plots/cluster_step5.png> <../tissue2_plots/cluster_step6.png>] [6 <../tissue2random_plots/cluster_step1.png> <../tissue2random_plots/cluster_step2.png> <../tissue2random_plots/cluster_step3.png>] (./writeup.aux) ) 
 Here is how much of TeX's memory you used:
- 983 strings out of 494091
- 11923 string characters out of 6163523
- 71609 words of memory out of 5000000
- 4696 multiletter control sequences out of 15000+600000
- 12403 words of font info for 48 fonts, out of 8000000 for 9000
+ 3936 strings out of 494091
+ 61540 string characters out of 6163523
+ 133996 words of memory out of 5000000
+ 7551 multiletter control sequences out of 15000+600000
+ 11689 words of font info for 45 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 27i,10n,25p,279b,192s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on writeup.pdf (3 pages, 86819 bytes).
+ 44i,12n,42p,329b,322s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on writeup.pdf (6 pages, 1457114 bytes).
 PDF statistics:
- 46 PDF objects out of 1000 (max. 8388607)
- 32 compressed objects within 1 object stream
+ 102 PDF objects out of 1000 (max. 8388607)
+ 54 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 
