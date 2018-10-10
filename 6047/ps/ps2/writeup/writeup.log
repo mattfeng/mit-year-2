@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.12)  8 OCT 2018 23:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.12)  9 OCT 2018 20:38
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -129,6 +129,13 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen121
 \Gin@req@width=\dimen122
+) (/usr/local/texlive/2018basic/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2011/09/28 v3.5.2 Customized lists
+\labelindent=\skip48
+\enit@outerparindent=\dimen123
+\enit@toks=\toks21
+\enit@inbox=\box28
+\enitdp@description=\count104
 ) (/usr/local/texlive/2018basic/texmf-dist/tex/latex/subfig/subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
  (/usr/local/texlive/2018basic/texmf-dist/tex/latex/caption/caption.sty
@@ -136,44 +143,44 @@ Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
  (/usr/local/texlive/2018basic/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 67.
-\captionmargin=\dimen123
-\captionmargin@=\dimen124
-\captionwidth=\dimen125
-\caption@tempdima=\dimen126
-\caption@indent=\dimen127
-\caption@parindent=\dimen128
-\caption@hangindent=\dimen129
+\captionmargin=\dimen124
+\captionmargin@=\dimen125
+\captionwidth=\dimen126
+\caption@tempdima=\dimen127
+\caption@indent=\dimen128
+\caption@parindent=\dimen129
+\caption@hangindent=\dimen130
 )
-\c@ContinuedFloat=\count104
+\c@ContinuedFloat=\count105
 )
-\c@KVtest=\count105
-\sf@farskip=\skip48
-\sf@captopadj=\dimen130
-\sf@capskip=\skip49
-\sf@nearskip=\skip50
-\c@subfigure=\count106
-\c@subfigure@save=\count107
-\c@lofdepth=\count108
-\c@subtable=\count109
-\c@subtable@save=\count110
-\c@lotdepth=\count111
-\sf@top=\skip51
-\sf@bottom=\skip52
+\c@KVtest=\count106
+\sf@farskip=\skip49
+\sf@captopadj=\dimen131
+\sf@capskip=\skip50
+\sf@nearskip=\skip51
+\c@subfigure=\count107
+\c@subfigure@save=\count108
+\c@lofdepth=\count109
+\c@subtable=\count110
+\c@subtable@save=\count111
+\c@lotdepth=\count112
+\sf@top=\skip52
+\sf@bottom=\skip53
 ) (./writeup.aux)
 \openout1 = `writeup.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -211,17 +218,17 @@ LaTeX Font Info:    ... okay on input line 13.
 
 (/usr/local/texlive/2018basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count112
-\scratchdimen=\dimen131
-\scratchbox=\box28
-\nofMPsegments=\count113
-\nofMParguments=\count114
-\everyMPshowfont=\toks21
-\MPscratchCnt=\count115
-\MPscratchDim=\dimen132
-\MPnumerator=\count116
-\makeMPintoPDFobject=\count117
-\everyMPtoPDFconversion=\toks22
+\scratchcounter=\count113
+\scratchdimen=\dimen132
+\scratchbox=\box29
+\nofMPsegments=\count114
+\nofMParguments=\count115
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count116
+\MPscratchDim=\dimen133
+\MPnumerator=\count117
+\makeMPintoPDFobject=\count118
+\everyMPtoPDFconversion=\toks23
 ) (/usr/local/texlive/2018basic/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
  (/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/infwarerr.sty
@@ -263,100 +270,108 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for U+msa on input line 15.
+LaTeX Font Info:    Try loading font information for U+msa on input line 16.
  (/usr/local/texlive/2018basic/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 15.
+LaTeX Font Info:    Try loading font information for U+msb on input line 16.
  (/usr/local/texlive/2018basic/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {/usr/local/texlive/2018basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 107--109
+Underfull \hbox (badness 10000) in paragraph at lines 108--110
 
  []
 
-<../tissue1_plots/cluster_step1.png, id=15, 1003.75pt x 1003.75pt>
+[2]
+<../tissue1_plots/cluster_step1.png, id=19, 1003.75pt x 1003.75pt>
 File: ../tissue1_plots/cluster_step1.png Graphic file (type png)
 <use ../tissue1_plots/cluster_step1.png>
-Package pdftex.def Info: ../tissue1_plots/cluster_step1.png  used on input line 125.
+Package pdftex.def Info: ../tissue1_plots/cluster_step1.png  used on input line 135.
 (pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
-<../tissue1_plots/cluster_step2.png, id=17, 1003.75pt x 1003.75pt>
+<../tissue1_plots/cluster_step2.png, id=21, 1003.75pt x 1003.75pt>
 File: ../tissue1_plots/cluster_step2.png Graphic file (type png)
 <use ../tissue1_plots/cluster_step2.png>
-Package pdftex.def Info: ../tissue1_plots/cluster_step2.png  used on input line 126.
+Package pdftex.def Info: ../tissue1_plots/cluster_step2.png  used on input line 136.
 (pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
-<../tissue1_plots/cluster_step3.png, id=18, 1003.75pt x 1003.75pt>
+<../tissue1_plots/cluster_step3.png, id=22, 1003.75pt x 1003.75pt>
 File: ../tissue1_plots/cluster_step3.png Graphic file (type png)
 <use ../tissue1_plots/cluster_step3.png>
-Package pdftex.def Info: ../tissue1_plots/cluster_step3.png  used on input line 128.
+Package pdftex.def Info: ../tissue1_plots/cluster_step3.png  used on input line 138.
 (pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
-<../tissue1_plots/cluster_step4.png, id=19, 1003.75pt x 1003.75pt>
+<../tissue1_plots/cluster_step4.png, id=23, 1003.75pt x 1003.75pt>
 File: ../tissue1_plots/cluster_step4.png Graphic file (type png)
 <use ../tissue1_plots/cluster_step4.png>
-Package pdftex.def Info: ../tissue1_plots/cluster_step4.png  used on input line 129.
+Package pdftex.def Info: ../tissue1_plots/cluster_step4.png  used on input line 139.
 (pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
-[2] [3 <../tissue1_plots/cluster_step1.png> <../tissue1_plots/cluster_step2.png> <../tissue1_plots/cluster_step3.png> <../tissue1_plots/cluster_step4.png>]
+ [3 <../tissue1_plots/cluster_step1.png> <../tissue1_plots/cluster_step2.png> <../tissue1_plots/cluster_step3.png> <../tissue1_plots/cluster_step4.png>]
 <../tissue2_plots/cluster_step1.png, id=34, 1003.75pt x 1003.75pt>
 File: ../tissue2_plots/cluster_step1.png Graphic file (type png)
 <use ../tissue2_plots/cluster_step1.png>
-Package pdftex.def Info: ../tissue2_plots/cluster_step1.png  used on input line 152.
+Package pdftex.def Info: ../tissue2_plots/cluster_step1.png  used on input line 162.
 (pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
 <../tissue2_plots/cluster_step2.png, id=35, 1003.75pt x 1003.75pt>
 File: ../tissue2_plots/cluster_step2.png Graphic file (type png)
 <use ../tissue2_plots/cluster_step2.png>
-Package pdftex.def Info: ../tissue2_plots/cluster_step2.png  used on input line 153.
+Package pdftex.def Info: ../tissue2_plots/cluster_step2.png  used on input line 163.
 (pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
 <../tissue2_plots/cluster_step3.png, id=36, 1003.75pt x 1003.75pt>
 File: ../tissue2_plots/cluster_step3.png Graphic file (type png)
 <use ../tissue2_plots/cluster_step3.png>
-Package pdftex.def Info: ../tissue2_plots/cluster_step3.png  used on input line 155.
+Package pdftex.def Info: ../tissue2_plots/cluster_step3.png  used on input line 165.
 (pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
 <../tissue2_plots/cluster_step4.png, id=37, 1003.75pt x 1003.75pt>
 File: ../tissue2_plots/cluster_step4.png Graphic file (type png)
 <use ../tissue2_plots/cluster_step4.png>
-Package pdftex.def Info: ../tissue2_plots/cluster_step4.png  used on input line 156.
+Package pdftex.def Info: ../tissue2_plots/cluster_step4.png  used on input line 166.
 (pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
 <../tissue2_plots/cluster_step5.png, id=38, 1003.75pt x 1003.75pt>
 File: ../tissue2_plots/cluster_step5.png Graphic file (type png)
 <use ../tissue2_plots/cluster_step5.png>
-Package pdftex.def Info: ../tissue2_plots/cluster_step5.png  used on input line 158.
+Package pdftex.def Info: ../tissue2_plots/cluster_step5.png  used on input line 168.
 (pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
 <../tissue2_plots/cluster_step6.png, id=39, 1003.75pt x 1003.75pt>
 File: ../tissue2_plots/cluster_step6.png Graphic file (type png)
 <use ../tissue2_plots/cluster_step6.png>
-Package pdftex.def Info: ../tissue2_plots/cluster_step6.png  used on input line 159.
+Package pdftex.def Info: ../tissue2_plots/cluster_step6.png  used on input line 169.
 (pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
 <../tissue2random_plots/cluster_step1.png, id=40, 1003.75pt x 1003.75pt>
 File: ../tissue2random_plots/cluster_step1.png Graphic file (type png)
 <use ../tissue2random_plots/cluster_step1.png>
-Package pdftex.def Info: ../tissue2random_plots/cluster_step1.png  used on input line 168.
+Package pdftex.def Info: ../tissue2random_plots/cluster_step1.png  used on input line 178.
 (pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
 <../tissue2random_plots/cluster_step2.png, id=41, 1003.75pt x 1003.75pt>
 File: ../tissue2random_plots/cluster_step2.png Graphic file (type png)
 <use ../tissue2random_plots/cluster_step2.png>
-Package pdftex.def Info: ../tissue2random_plots/cluster_step2.png  used on input line 169.
+Package pdftex.def Info: ../tissue2random_plots/cluster_step2.png  used on input line 179.
 (pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
 <../tissue2random_plots/cluster_step3.png, id=42, 1003.75pt x 1003.75pt>
 File: ../tissue2random_plots/cluster_step3.png Graphic file (type png)
 <use ../tissue2random_plots/cluster_step3.png>
-Package pdftex.def Info: ../tissue2random_plots/cluster_step3.png  used on input line 171.
+Package pdftex.def Info: ../tissue2random_plots/cluster_step3.png  used on input line 181.
 (pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
- [4] [5 <../tissue2_plots/cluster_step1.png> <../tissue2_plots/cluster_step2.png> <../tissue2_plots/cluster_step3.png> <../tissue2_plots/cluster_step4.png> <../tissue2_plots/cluster_step5.png> <../tissue2_plots/cluster_step6.png>] [6 <../tissue2random_plots/cluster_step1.png> <../tissue2random_plots/cluster_step2.png> <../tissue2random_plots/cluster_step3.png>] (./writeup.aux) ) 
+ [4] [5 <../tissue2_plots/cluster_step1.png> <../tissue2_plots/cluster_step2.png> <../tissue2_plots/cluster_step3.png> <../tissue2_plots/cluster_step4.png> <../tissue2_plots/cluster_step5.png> <../tissue2_plots/cluster_step6.png>] [6 <../tissue2random_plots/cluster_step1.png> <../tissue2random_plots/cluster_step2.png> <../tissue2random_plots/cluster_step3.png>] [7]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 316.
+ (/usr/local/texlive/2018basic/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 316.
+ [8] (./writeup.aux) ) 
 Here is how much of TeX's memory you used:
- 3936 strings out of 494091
- 61540 string characters out of 6163523
- 133996 words of memory out of 5000000
- 7551 multiletter control sequences out of 15000+600000
- 11689 words of font info for 45 fonts, out of 8000000 for 9000
+ 4228 strings out of 494091
+ 66546 string characters out of 6163523
+ 140098 words of memory out of 5000000
+ 7835 multiletter control sequences out of 15000+600000
+ 12035 words of font info for 46 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  44i,12n,42p,329b,322s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on writeup.pdf (6 pages, 1457114 bytes).
+</usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on writeup.pdf (8 pages, 1476719 bytes).
 PDF statistics:
- 102 PDF objects out of 1000 (max. 8388607)
- 54 compressed objects within 1 object stream
+ 114 PDF objects out of 1000 (max. 8388607)
+ 63 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

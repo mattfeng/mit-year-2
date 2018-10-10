@@ -4,6 +4,7 @@
 \usepackage{amsfonts}
 \usepackage{multirow}
 \usepackage{graphicx}
+\usepackage{enumitem}
 \usepackage{subfig}
 
 \title{6.047 Problem Set 2 Writeup}
@@ -113,7 +114,16 @@ $0$ is a good discriminator; alignments of $0$
 are twice as likely to occur in model $N$ than in
 model $C$.
 
-\subsection*{(e)}
+\subsection*{(e) Long sequences}
+We can reduce the classification errors for longer sequences by
+splitting them into shorter sequences, so that the whole
+sequence is not necessarily classified as a single class.
+Additionally, if we split the long sequence into
+shorter segments but compute the classification
+probabilities multiple times with the breaks at different locations,
+then we can further improve accuracy by checking which segments are
+classified as a certain class consistently throughout the
+different segmentations.
 
 \section{K-means Clustering}
 \subsection*{(a) $k$-means implementation}
@@ -194,11 +204,118 @@ color for the probabilities.
 
 \section{Final project preparation}
 \subsection*{(b) Evaluate proposals}
+What do you find most exciting about the proposal?
+What would you do differently for that proposal?
+What aspects of the area did the proposal leave unaddressed, and how would you address them?
+
+\subsubsection*{Representation learning for microbial genes and genomes}
+Relevant file: {\tt anon23.pdf}\\
+Natural language processing is very exciting in that although the field
+was originally designed to handle spoken languages from across the globe,
+it has evolved to apply to any language that we used, from scientific disciplines
+to historical languages to mathematical logic. Surprisingly, NLP algorithms
+work very well, and the theory extends beyond the languages we commonly
+see. As such, this project proposal is very exciting because it attempts to
+apply word embeddings, in particular {\it lda2vec} word embeddings, in
+order to learn relationships amongs microbial gene sequences.
+
+One shortcoming of the proposal is that it doesn't specify any metric for
+measuring the success of their technique; I would make a modification that
+would include some metric that allows the results to be quantified, beyond
+using examples as evidence that the embeddings have some more meaning
+behind them.
+
+The proposal doesn't address how these word embeddings could be used;
+designing an extension that tries to use word embeddings as a feature set
+for prediction would also allow for more interesting applications and
+insight into the microbial gene language.
+
+\subsubsection*{Inferring non-canonical metabolic pathways to improve cancer tissue classification}
+Relevant file: {\tt anon12.pdf}\\
+The proposal is exciting because it extends a novel algorithm and applies it
+to other deviations that cancer introduces from the ``canonical'' pathways
+known for healthy cells. In addition to examining uncommon metabolic pathways,
+the project proposed will also examine aberrant gene methylation, and try
+to extract features from these other areas in order to better classify 
+cancer tissue.
+
+The proposal doesn't address how their proposed unsupervised learning
+techniques would identify these unknown features; I would be more
+specific or use the same unsupervised learning techniques as the MCF authors
+did, in order to be able to best understand the results.
 
 \subsection*{(c) Evaluate scientific papers}
 
+\subsubsection*{Development and Validation of a Deep Learning Algorithm for
+Detection of Diabetic Retinopathy in Retinal Fundus Photographs}
+This paper is exciting because it is one of the first demonstrations of the
+validity and applicability of convolutional neural networks to radiology.
+The authors do not propose such a system to replace radiologists, but rather
+as a substantial aid to reduce the number of false-negatives that may have
+gone unnoticed otherwise.
+
+The authors leave for further research how to translate the predictive
+abilities of the convolutional neural network into human understandable
+insights to improve radiologist performance in detecting diabetic retinopathy.
+The main reason this area is untouched is the extreme complexity that neural
+networks bring, and the opaqueness of their logic currently. Augmenting such
+a system with some technique that could give rationale for decisions would
+not only further human understanding of radiology, but also add confidence
+to those who use the system.
+
+I would attempt to address this adding a requirement to the neural network
+that forces it to label regions that it believes are important, and then
+train a convolutional neural network on the labeled regions to output
+whether or not an image indicates diabetic retinopathy. The inspiration
+for such a network stems from Barzilay's paper, ``Rationalizing Neural
+Predictions'', which uses a similar approach.
+
+\subsubsection*{Data-Driven Metabolic Pathway Compositions Enhance Cancer Survival Prediction}
+What I find most exciting about this paper is the implementation of a well
+known fact that cancer cells have unique metabolic pathways into a system
+that attempts to find such paths on training data, and then apply those paths
+to testing data to classify cell type. It is a novel approach of mixing
+unsupervised learning algorithms with traditional graph search algorithms
+in order to identify new features for supervised learning.
+
+The authors have left open the problem of improving the MCF algorithm via
+better heuristics for computing the longest path, which is well known to be
+a NP-complete problem. Furthermore, the researchers have not yet tried to use
+their MCF algorithm to explore the different metabolic pathways that
+cancer cells construct, separate from the application of these pathways as
+predictive characteristics of cancer.
+
+The researchers have also not published the code that they wrote that
+constructed these MCF pathways; to address this issue, I would try to
+implement the algorithm based on their discussion and see whether or
+not the results are reproducible.
+
 \subsection*{(d) Project idea}
+A project I had would be to extend upon DeepMind's paper on
+diabetic retinopathy to incorporate rationalization and reasoning
+as to what the neural network ``saw'' when deciding a classification for
+the patient.
+
+I would need to gather the training and testing data that was used
+for the DeepMind paper, as well as pixel masks that highlight what
+expert radiologists believed to be key factors in determining the
+class for a sample image. I would also need very strong compute
+capabilities, as training on images is very computationally expensive.
+However, I believe that the approach can yield insights into where
+the neural network pays attention in an image, and improve upon
+our understanding of radiology.
+
+One of the challenges I anticipate is making sure the neural network
+converges, along with making sure that the pixel selection process is
+differentiable, in order for the network to be able to train. Furthermore, 
+determining the appropriate hyperparameters for the model to tune it will
+take time as well.
 
 \subsection*{(e) Potential project partners}
+\begin{itemize}[noitemsep]
+\item Chris Giuliano
+\item Peter Wang
+\item Soumya Kannan
+\end{itemize}
 
 \end{document}
