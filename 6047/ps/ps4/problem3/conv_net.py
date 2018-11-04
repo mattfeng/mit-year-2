@@ -8,6 +8,8 @@ import numpy as np
 
 from datetime import datetime
 
+import alternative_models as models
+
 import argparse
 
 BATCH_SIZE = 10
@@ -75,6 +77,8 @@ def create_model():
     model.add(Dense(2, activation="softmax")) # same as 1 output sigmoid
     return model
 
+MODEL_FUNC = create_model
+
 def main():
     np.random.seed(1)
 
@@ -98,7 +102,7 @@ def main():
     print(X_train.shape)
 
     # define model
-    model = create_model()
+    model = MODEL_FUNC()
     model.compile(loss="categorical_crossentropy",
         optimizer="adam",
         metrics=["accuracy"])
@@ -138,6 +142,10 @@ if __name__ == "__main__":
         "-f", "--num_filters",
         help="Number of filters for the Conv layer",
         type=int)
+    parser.add_argument(
+        "-m", "--model",
+        help="Use a particular model implemented in alternative_models.py",
+        type=str)
 
     args = parser.parse_args()
 
@@ -160,6 +168,9 @@ if __name__ == "__main__":
     
     if args.num_filters:
         CONV_FILTERS = args.num_filters
+
+    if args.model:
+        MODEL_FUNC = getattr(models, args.model)
 
     main()
 

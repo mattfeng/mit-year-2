@@ -149,17 +149,12 @@
         \PYG{n}{NUM\PYGZus{}EPOCHS} \PYG{o}{=} \PYG{n}{args}\PYG{o}{.}\PYG{n}{epochs}
 
     \PYG{k}{if} \PYG{n}{args}\PYG{o}{.}\PYG{n}{kernel}\PYG{p}{:}
-        \PYG{k}{if} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{args}\PYG{o}{.}\PYG{n}{kernel}\PYG{p}{)} \PYG{o}{!=} \PYG{l+m+mi}{2}\PYG{p}{:}
-            \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Kernel size must be tuple of length 2\PYGZdq{}}\PYG{p}{)}
-            \PYG{n}{quit}\PYG{p}{()}
-        \PYG{n}{KERNEL\PYGZus{}SIZE} \PYG{o}{=} \PYG{n}{args}\PYG{o}{.}\PYG{n}{kernel}
+        \PYG{n}{height}\PYG{p}{,} \PYG{n}{width} \PYG{o}{=} \PYG{n+nb}{map}\PYG{p}{(}\PYG{n+nb}{int}\PYG{p}{,} \PYG{n}{args}\PYG{o}{.}\PYG{n}{kernel}\PYG{o}{.}\PYG{n}{split}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{},\PYGZdq{}}\PYG{p}{))}
+        \PYG{n}{KERNEL\PYGZus{}SIZE} \PYG{o}{=} \PYG{p}{(}\PYG{n}{height}\PYG{p}{,} \PYG{n}{width}\PYG{p}{)}
 
     \PYG{k}{if} \PYG{n}{args}\PYG{o}{.}\PYG{n}{pool}\PYG{p}{:}
-        \PYG{k}{if} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{args}\PYG{o}{.}\PYG{n}{pool}\PYG{p}{)} \PYG{o}{!=} \PYG{l+m+mi}{2}\PYG{p}{:}
-            \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Pooling size must be tuple of length 2\PYGZdq{}}\PYG{p}{)}
-            \PYG{n}{quit}\PYG{p}{()}
-
-        \PYG{n}{POOL\PYGZus{}SIZE} \PYG{o}{=} \PYG{n}{args}\PYG{o}{.}\PYG{n}{pool}
+        \PYG{n}{height}\PYG{p}{,} \PYG{n}{width} \PYG{o}{=} \PYG{n+nb}{map}\PYG{p}{(}\PYG{n+nb}{int}\PYG{p}{,} \PYG{n}{args}\PYG{o}{.}\PYG{n}{pool}\PYG{o}{.}\PYG{n}{split}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{},\PYGZdq{}}\PYG{p}{))}
+        \PYG{n}{POOL\PYGZus{}SIZE} \PYG{o}{=} \PYG{p}{(}\PYG{n}{height}\PYG{p}{,} \PYG{n}{width}\PYG{p}{)}
 
     \PYG{k}{if} \PYG{n}{args}\PYG{o}{.}\PYG{n}{hidden\PYGZus{}units}\PYG{p}{:}
         \PYG{n}{HIDDEN\PYGZus{}UNITS} \PYG{o}{=} \PYG{n}{args}\PYG{o}{.}\PYG{n}{hidden\PYGZus{}units}

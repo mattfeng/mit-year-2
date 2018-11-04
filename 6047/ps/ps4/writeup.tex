@@ -15,6 +15,14 @@
 % =-=-=-=-=-=-=-=-=-=
 \section{Simulated GWAS}
 
+\subsection*{(a) $\beta_i$ and SNP odds ratio}
+\subsection*{(b)}
+See {\tt simulated\_gwas.py}.
+
+\subsection*{(c)}
+\subsection*{(d)}
+\subsection*{(e)}
+
 % =-=-=-=-=-=-=-=-=
 % = Finding eQTLs =
 % =-=-=-=-=-=-=-=-=
@@ -37,6 +45,8 @@ each hypothesis that SNP $x_i$ contributes
 to the expression of gene $y_j$ with significance
 of $\alpha / 5000$, where $\alpha = 0.05$ (since we are testing
 $5000$ different genes corresponding to $5000$ different hypotheses).
+
+\subsection*{(c) Additional Datasets}
 
 % =-=-=-=-=-=-=-=-=-=-=
 % = Convolutional NNs =
@@ -196,17 +206,12 @@ if __name__ == "__main__":
         NUM_EPOCHS = args.epochs
     
     if args.kernel:
-        if len(args.kernel) != 2:
-            print("Kernel size must be tuple of length 2")
-            quit()
-        KERNEL_SIZE = args.kernel
-    
-    if args.pool:
-        if len(args.pool) != 2:
-            print("Pooling size must be tuple of length 2")
-            quit()
+        height, width = map(int, args.kernel.split(","))
+        KERNEL_SIZE = (height, width)
 
-        POOL_SIZE = args.pool
+    if args.pool:
+        height, width = map(int, args.pool.split(","))
+        POOL_SIZE = (height, width)
     
     if args.hidden_units:
         HIDDEN_UNITS = args.hidden_units
@@ -240,8 +245,8 @@ if __name__ == "__main__":
         ${\tt hidden\_units} = 32$ \\
         ${\tt num\_filters} = 32$ \\
     \end{tabular} &
-    100\% & % train acc
-    94.8\% & % test acc
+    100.00\% & % train acc
+    94.80\% & % test acc
     00:13:02 \\ % train time
 
     \hline
@@ -254,9 +259,9 @@ if __name__ == "__main__":
         ${\tt hidden\_units} = 32$ \\
         ${\tt num\_filters} = 1024$ \\
     \end{tabular} &
-    c & % train acc
-    d \\ % test acc
-
+    99.32\% & % train acc
+    95.60\% & % test acc
+    00:35:37 \\ % train time
     \hline
     (3) & % model no.
     \begin{tabular}{c} % hyperparams
@@ -267,9 +272,9 @@ if __name__ == "__main__":
         ${\tt hidden\_units} = 512$ \\
         ${\tt num\_filters} = 32$ \\
     \end{tabular} &
-    c & % train acc
-    d \\ % test acc
-
+    97.56\% & % train acc
+    93.50\% & % test acc
+    00:02:34 \\ % train time
     \hline
 \end{tabular}
 \end{center}
