@@ -21,7 +21,15 @@ See {\tt simulated\_gwas.py}.
 
 \subsection*{(c)}
 \subsection*{(d)}
-\subsection*{(e)}
+\subsection*{(e) Hyperparameters}
+\subsubsection{$n = 10000, k = 100, m = 1000, s = 0.25$}
+test
+
+\subsubsection{$n = 1000, k = 100, m = 1000, s = 0.25$}
+\subsubsection{$n = 100000, k = 100, m = 1000, s = 0.25$}
+\subsubsection{$n = 10000, k = 100, m = 10000, s = 0.25$}
+\subsubsection{$n = 10000, k = 100, m = 1000, s = 0.5$}
+\subsubsection{$n = 10000, k = 100, m = 1000, s = 0.1$}
 
 % =-=-=-=-=-=-=-=-=
 % = Finding eQTLs =
@@ -66,6 +74,8 @@ import numpy as np
 
 from datetime import datetime
 
+import alternative_models as models
+
 import argparse
 
 BATCH_SIZE = 10
@@ -74,6 +84,7 @@ KERNEL_SIZE = (4, 4)
 POOL_SIZE = (4, 6)
 HIDDEN_UNITS = 32
 CONV_FILTERS = 32
+MODEL_NAME = None
 
 def get_x_y_data():
     negative_data = []
@@ -133,6 +144,8 @@ def create_model():
     model.add(Dense(2, activation="softmax")) # same as 1 output sigmoid
     return model
 
+MODEL_FUNC = create_model
+
 def main():
     np.random.seed(1)
 
@@ -156,12 +169,19 @@ def main():
     print(X_train.shape)
 
     # define model
-    model = create_model()
+    model = MODEL_FUNC()
     model.compile(loss="categorical_crossentropy",
         optimizer="adam",
         metrics=["accuracy"])
 
     start = datetime.now()
+
+    if MODEL_NAME == "lstm":
+        X_train = X_train.squeeze()
+        X_train = np.swapaxes(X_train, 1, 2)
+        X_test = X_test.squeeze()
+        X_test = np.swapaxes(X_test, 1, 2)
+
     model.fit(X_train, y_train, epochs=NUM_EPOCHS, batch_size=BATCH_SIZE)
     end = datetime.now()
 
@@ -182,12 +202,12 @@ if __name__ == "__main__":
         type=int)
     parser.add_argument(
         "-k", "--kernel",
-        help="(height, width) tuple representing size of kernel.",
-        type=tuple)
+        help="height,width tuple representing size of kernel.",
+        type=str)
     parser.add_argument(
         "-p", "--pool",
-        help="(height, width) tuple representing size of pool.",
-        type=tuple)
+        help="height,width tuple representing size of pool.",
+        type=str)
     parser.add_argument(
         "-u", "--hidden_units",
         help="Number of hidden units for the Dense layer",
@@ -196,6 +216,10 @@ if __name__ == "__main__":
         "-f", "--num_filters",
         help="Number of filters for the Conv layer",
         type=int)
+    parser.add_argument(
+        "-m", "--model",
+        help="Use a particular model implemented in alternative_models.py",
+        type=str)
 
     args = parser.parse_args()
 
@@ -218,6 +242,10 @@ if __name__ == "__main__":
     
     if args.num_filters:
         CONV_FILTERS = args.num_filters
+
+    if args.model:
+        MODEL_NAME = args.model
+        MODEL_FUNC = getattr(models, args.model)
 
     main()
 
@@ -280,5 +308,48 @@ if __name__ == "__main__":
 \end{center}
 
 \subsection*{(d) Architectures}
+
+\begin{center}
+\begin{tabular}{ c  c  c  c  c }
+    \hline
+    {\bf Model} & {\bf Architecture} & {\bf AC (Train)} & {\bf AC (Test)} & {\bf Time}\\
+    \hline
+    {\tt deep\_conv\_net} & % model no.
+    \begin{tabular}{c} % architecture
+        Conv2D(32, (4, 6))\\
+        Conv2D(64, (4, 3))\\
+        MaxPool((4, 6))\\
+        Conv2D(128, (4, 3))\\
+        Conv2D(1024, (1, 1))\\
+        Dense(64)\\
+        Dense(2)\\
+    \end{tabular} &
+    99.36\% & % train acc
+    98.10\% & % test acc
+    00:10:25 \\ % train time
+
+    \hline
+    {\tt fully\_connected} & % model no.
+    \begin{tabular}{c} % architecture
+        Dense(1024) \\
+        Dense(256)\\
+        Dense(512)\\
+        Dense(2)\\
+    \end{tabular} &
+    99.58\% & % train acc
+    93.20\% & % test acc
+    00:03:02 \\ % train time
+    \hline
+    {\tt lstm} & % model no.
+    \begin{tabular}{c} % architecture
+        LSTM(64)\\
+        Dense(2)\\
+    \end{tabular} &
+    98.40\% & % train acc
+    98.30\% & % test acc
+    00:23:17 \\ % train time
+    \hline
+\end{tabular}
+\end{center}
     
 \end{document}

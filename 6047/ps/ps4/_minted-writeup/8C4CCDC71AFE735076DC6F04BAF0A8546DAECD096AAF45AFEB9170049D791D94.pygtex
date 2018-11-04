@@ -9,6 +9,8 @@
 
 \PYG{k+kn}{from} \PYG{n+nn}{datetime} \PYG{k+kn}{import} \PYG{n}{datetime}
 
+\PYG{k+kn}{import} \PYG{n+nn}{alternative\PYGZus{}models} \PYG{k+kn}{as} \PYG{n+nn}{models}
+
 \PYG{k+kn}{import} \PYG{n+nn}{argparse}
 
 \PYG{n}{BATCH\PYGZus{}SIZE} \PYG{o}{=} \PYG{l+m+mi}{10}
@@ -17,6 +19,7 @@
 \PYG{n}{POOL\PYGZus{}SIZE} \PYG{o}{=} \PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{)}
 \PYG{n}{HIDDEN\PYGZus{}UNITS} \PYG{o}{=} \PYG{l+m+mi}{32}
 \PYG{n}{CONV\PYGZus{}FILTERS} \PYG{o}{=} \PYG{l+m+mi}{32}
+\PYG{n}{MODEL\PYGZus{}NAME} \PYG{o}{=} \PYG{n+nb+bp}{None}
 
 \PYG{k}{def} \PYG{n+nf}{get\PYGZus{}x\PYGZus{}y\PYGZus{}data}\PYG{p}{():}
     \PYG{n}{negative\PYGZus{}data} \PYG{o}{=} \PYG{p}{[]}
@@ -76,6 +79,8 @@
     \PYG{n}{model}\PYG{o}{.}\PYG{n}{add}\PYG{p}{(}\PYG{n}{Dense}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{activation}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}softmax\PYGZdq{}}\PYG{p}{))} \PYG{c+c1}{\PYGZsh{} same as 1 output sigmoid}
     \PYG{k}{return} \PYG{n}{model}
 
+\PYG{n}{MODEL\PYGZus{}FUNC} \PYG{o}{=} \PYG{n}{create\PYGZus{}model}
+
 \PYG{k}{def} \PYG{n+nf}{main}\PYG{p}{():}
     \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{seed}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}
 
@@ -99,12 +104,19 @@
     \PYG{k}{print}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{)}
 
     \PYG{c+c1}{\PYGZsh{} define model}
-    \PYG{n}{model} \PYG{o}{=} \PYG{n}{create\PYGZus{}model}\PYG{p}{()}
+    \PYG{n}{model} \PYG{o}{=} \PYG{n}{MODEL\PYGZus{}FUNC}\PYG{p}{()}
     \PYG{n}{model}\PYG{o}{.}\PYG{n}{compile}\PYG{p}{(}\PYG{n}{loss}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}categorical\PYGZus{}crossentropy\PYGZdq{}}\PYG{p}{,}
         \PYG{n}{optimizer}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}adam\PYGZdq{}}\PYG{p}{,}
         \PYG{n}{metrics}\PYG{o}{=}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}accuracy\PYGZdq{}}\PYG{p}{])}
 
     \PYG{n}{start} \PYG{o}{=} \PYG{n}{datetime}\PYG{o}{.}\PYG{n}{now}\PYG{p}{()}
+
+    \PYG{k}{if} \PYG{n}{MODEL\PYGZus{}NAME} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}lstm\PYGZdq{}}\PYG{p}{:}
+        \PYG{n}{X\PYGZus{}train} \PYG{o}{=} \PYG{n}{X\PYGZus{}train}\PYG{o}{.}\PYG{n}{squeeze}\PYG{p}{()}
+        \PYG{n}{X\PYGZus{}train} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{swapaxes}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{)}
+        \PYG{n}{X\PYGZus{}test} \PYG{o}{=} \PYG{n}{X\PYGZus{}test}\PYG{o}{.}\PYG{n}{squeeze}\PYG{p}{()}
+        \PYG{n}{X\PYGZus{}test} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{swapaxes}\PYG{p}{(}\PYG{n}{X\PYGZus{}test}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{)}
+
     \PYG{n}{model}\PYG{o}{.}\PYG{n}{fit}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{p}{,} \PYG{n}{y\PYGZus{}train}\PYG{p}{,} \PYG{n}{epochs}\PYG{o}{=}\PYG{n}{NUM\PYGZus{}EPOCHS}\PYG{p}{,} \PYG{n}{batch\PYGZus{}size}\PYG{o}{=}\PYG{n}{BATCH\PYGZus{}SIZE}\PYG{p}{)}
     \PYG{n}{end} \PYG{o}{=} \PYG{n}{datetime}\PYG{o}{.}\PYG{n}{now}\PYG{p}{()}
 
@@ -125,12 +137,12 @@
         \PYG{n+nb}{type}\PYG{o}{=}\PYG{n+nb}{int}\PYG{p}{)}
     \PYG{n}{parser}\PYG{o}{.}\PYG{n}{add\PYGZus{}argument}\PYG{p}{(}
         \PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}k\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}\PYGZhy{}kernel\PYGZdq{}}\PYG{p}{,}
-        \PYG{n}{help}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}(height, width) tuple representing size of kernel.\PYGZdq{}}\PYG{p}{,}
-        \PYG{n+nb}{type}\PYG{o}{=}\PYG{n+nb}{tuple}\PYG{p}{)}
+        \PYG{n}{help}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}height,width tuple representing size of kernel.\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nb}{type}\PYG{o}{=}\PYG{n+nb}{str}\PYG{p}{)}
     \PYG{n}{parser}\PYG{o}{.}\PYG{n}{add\PYGZus{}argument}\PYG{p}{(}
         \PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}p\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}\PYGZhy{}pool\PYGZdq{}}\PYG{p}{,}
-        \PYG{n}{help}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}(height, width) tuple representing size of pool.\PYGZdq{}}\PYG{p}{,}
-        \PYG{n+nb}{type}\PYG{o}{=}\PYG{n+nb}{tuple}\PYG{p}{)}
+        \PYG{n}{help}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}height,width tuple representing size of pool.\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nb}{type}\PYG{o}{=}\PYG{n+nb}{str}\PYG{p}{)}
     \PYG{n}{parser}\PYG{o}{.}\PYG{n}{add\PYGZus{}argument}\PYG{p}{(}
         \PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}u\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}\PYGZhy{}hidden\PYGZus{}units\PYGZdq{}}\PYG{p}{,}
         \PYG{n}{help}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}Number of hidden units for the Dense layer\PYGZdq{}}\PYG{p}{,}
@@ -139,6 +151,10 @@
         \PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}f\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}\PYGZhy{}num\PYGZus{}filters\PYGZdq{}}\PYG{p}{,}
         \PYG{n}{help}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}Number of filters for the Conv layer\PYGZdq{}}\PYG{p}{,}
         \PYG{n+nb}{type}\PYG{o}{=}\PYG{n+nb}{int}\PYG{p}{)}
+    \PYG{n}{parser}\PYG{o}{.}\PYG{n}{add\PYGZus{}argument}\PYG{p}{(}
+        \PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}m\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}\PYGZhy{}model\PYGZdq{}}\PYG{p}{,}
+        \PYG{n}{help}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}Use a particular model implemented in alternative\PYGZus{}models.py\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nb}{type}\PYG{o}{=}\PYG{n+nb}{str}\PYG{p}{)}
 
     \PYG{n}{args} \PYG{o}{=} \PYG{n}{parser}\PYG{o}{.}\PYG{n}{parse\PYGZus{}args}\PYG{p}{()}
 
@@ -161,6 +177,10 @@
 
     \PYG{k}{if} \PYG{n}{args}\PYG{o}{.}\PYG{n}{num\PYGZus{}filters}\PYG{p}{:}
         \PYG{n}{CONV\PYGZus{}FILTERS} \PYG{o}{=} \PYG{n}{args}\PYG{o}{.}\PYG{n}{num\PYGZus{}filters}
+
+    \PYG{k}{if} \PYG{n}{args}\PYG{o}{.}\PYG{n}{model}\PYG{p}{:}
+        \PYG{n}{MODEL\PYGZus{}NAME} \PYG{o}{=} \PYG{n}{args}\PYG{o}{.}\PYG{n}{model}
+        \PYG{n}{MODEL\PYGZus{}FUNC} \PYG{o}{=} \PYG{n+nb}{getattr}\PYG{p}{(}\PYG{n}{models}\PYG{p}{,} \PYG{n}{args}\PYG{o}{.}\PYG{n}{model}\PYG{p}{)}
 
     \PYG{n}{main}\PYG{p}{()}
 

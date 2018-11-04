@@ -27,3 +27,17 @@ def deep_conv_net():
     model.add(Dense(64, activation="relu"))
     model.add(Dense(2, activation="softmax")) # same as 1 output sigmoid
     return model
+
+def fully_connected():
+    model = Sequential()
+    model.add(Dense(256, input_shape=(4, 100, 1)))
+    model.add(Dense(256, activation="relu"))
+    model.add(Dense(512, activation="relu"))
+    model.add(Dense(2, activation="softmax")) # same as 1 output sigmoid
+    return model
+
+def lstm():
+    model = Sequential()
+    model.add(LSTM(64, activation="sigmoid", input_shape=(100, 4)))
+    model.add(Dense(2, activation="softmax")) # same as 1 output sigmoid
+    return model

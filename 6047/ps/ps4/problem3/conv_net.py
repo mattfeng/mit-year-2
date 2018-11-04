@@ -18,6 +18,7 @@ KERNEL_SIZE = (4, 4)
 POOL_SIZE = (4, 6)
 HIDDEN_UNITS = 32
 CONV_FILTERS = 32
+MODEL_NAME = None
 
 def get_x_y_data():
     negative_data = []
@@ -108,6 +109,13 @@ def main():
         metrics=["accuracy"])
 
     start = datetime.now()
+
+    if MODEL_NAME == "lstm":
+        X_train = X_train.squeeze()
+        X_train = np.swapaxes(X_train, 1, 2)
+        X_test = X_test.squeeze()
+        X_test = np.swapaxes(X_test, 1, 2)
+
     model.fit(X_train, y_train, epochs=NUM_EPOCHS, batch_size=BATCH_SIZE)
     end = datetime.now()
 
@@ -170,6 +178,7 @@ if __name__ == "__main__":
         CONV_FILTERS = args.num_filters
 
     if args.model:
+        MODEL_NAME = args.model
         MODEL_FUNC = getattr(models, args.model)
 
     main()
