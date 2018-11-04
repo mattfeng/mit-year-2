@@ -16,27 +16,78 @@
 \section{Simulated GWAS}
 
 \subsection*{(a) $\beta_i$ and SNP odds ratio}
-\subsection*{(b)}
+\subsection*{(b), (c)}
 See {\tt simulated\_gwas.py}.
 
-\subsection*{(c)}
-\subsection*{(d)}
-\subsection*{(e) Hyperparameters}
-\subsubsection{$n = 10000, k = 100, m = 1000, s = 0.25$}
-test
+\subsection*{(d) Bonferroni Correction}
+If we are using a significance level of $\alpha = 0.05$, then
+the $p$-value needed for significance accounting for the
+Bonferroni correction is $\frac{0.05}{m}$. This Bonferroni
+correction is necessary because we are conducting
+multiple significance tests simulataneously;
+if we continued to only use $\alpha$, then just by chance
+$m \times 0.05$ SNPs would be statistically significant.
 
-\subsubsection{$n = 1000, k = 100, m = 1000, s = 0.25$}
-\subsubsection{$n = 100000, k = 100, m = 1000, s = 0.25$}
-\subsubsection{$n = 10000, k = 100, m = 10000, s = 0.25$}
-\subsubsection{$n = 10000, k = 100, m = 1000, s = 0.5$}
-\subsubsection{$n = 10000, k = 100, m = 1000, s = 0.1$}
+\subsection*{(e) Hyperparameters}
+Accuracy (AC) ($\frac{TP + TN}{TP + TN + FP + FN}$)
+
+\vspace{1em}
+\noindent Precision (PRC) ($\frac{TP}{TP + FP}$)
+
+\vspace{1em}
+\noindent Recall (RCL) ($\frac{TP}{TP + FN}$)
+
+\begin{center}
+\begin{tabular}{c c c c c c c c}
+{\bf Hyperparameters} & {\bf TP} & {\bf FP} & {\bf TN} &
+{\bf FN} & {\bf AC} & {\bf PRC} & {\bf RCL}\\
+
+\hline
+\begin{tabular}{c}
+$n = 10000, k = 100$ \\
+$m = 1000, s = 0.25$
+\end{tabular} & 8 & 0 & 900 & 92 & 0.908 & 1.00 & 0.08 \\
+
+\hline
+\begin{tabular}{c}
+$n = 1000, k = 100$ \\
+$m = 1000, s = 0.25$
+\end{tabular} & 0 & 1 & 899 & 100 & 0.899 & 0.00 & 0.00 \\
+
+\hline
+\begin{tabular}{c}
+$n = 100000, k = 100$ \\
+$m = 1000, s = 0.25$
+\end{tabular} & 49 & 0 & 900 & 51 & 0.959 & 1.00 & 0.49 \\
+
+\hline
+\begin{tabular}{c}
+$n = 10000, k = 100$ \\
+$m = 10000, s = 0.25$
+\end{tabular} & 8 & 0 & 9900 & 92 & 0.991 & 1.00 & 0.08 \\
+
+\hline
+\begin{tabular}{c}
+$n = 10000, k = 100$ \\
+$m = 1000, s = 0.5$
+\end{tabular} & 10 & 0 & 900 & 90 & 0.910 & 1.00 & 0.10 \\
+
+\hline
+\begin{tabular}{c}
+$n = 10000, k = 100$ \\
+$m = 1000, s = 0.1$
+\end{tabular} & 3 & 0 & 900 & 97 & 0.903 & 1.00 & 0.03 \\
+
+\hline
+\end{tabular}
+\end{center}
 
 % =-=-=-=-=-=-=-=-=
 % = Finding eQTLs =
 % =-=-=-=-=-=-=-=-=
 \section{Finding eQTLs}
 
-\subsection*{(a) Principle Components Analysis}
+\subsection*{(a) Principal Components Analysis}
 
 \subsection*{(b) Finding eQTLs via Linear Regression}
 For every SNP $x_i$, we find the mean and variance
@@ -306,6 +357,8 @@ if __name__ == "__main__":
     \hline
 \end{tabular}
 \end{center}
+
+
 
 \subsection*{(d) Architectures}
 
