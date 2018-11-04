@@ -124,12 +124,12 @@ if __name__ == "__main__":
         type=int)
     parser.add_argument(
         "-k", "--kernel",
-        help="(height, width) tuple representing size of kernel.",
-        type=tuple)
+        help="height,width tuple representing size of kernel.",
+        type=str)
     parser.add_argument(
         "-p", "--pool",
-        help="(height, width) tuple representing size of pool.",
-        type=tuple)
+        help="height,width tuple representing size of pool.",
+        type=str)
     parser.add_argument(
         "-u", "--hidden_units",
         help="Number of hidden units for the Dense layer",
@@ -148,17 +148,12 @@ if __name__ == "__main__":
         NUM_EPOCHS = args.epochs
     
     if args.kernel:
-        if len(args.kernel) != 2:
-            print("Kernel size must be tuple of length 2")
-            quit()
-        KERNEL_SIZE = args.kernel
-    
-    if args.pool:
-        if len(args.pool) != 2:
-            print("Pooling size must be tuple of length 2")
-            quit()
+        height, width = map(int, args.kernel.split(","))
+        KERNEL_SIZE = (height, width)
 
-        POOL_SIZE = args.pool
+    if args.pool:
+        height, width = map(int, args.pool.split(","))
+        POOL_SIZE = (height, width)
     
     if args.hidden_units:
         HIDDEN_UNITS = args.hidden_units
