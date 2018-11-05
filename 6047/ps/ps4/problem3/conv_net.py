@@ -107,6 +107,7 @@ def main():
     model.compile(loss="categorical_crossentropy",
         optimizer="adam",
         metrics=["accuracy"])
+    model.summary()
 
     start = datetime.now()
 

@@ -324,16 +324,60 @@ if __name__ == "__main__":
 
 \subsection*{(b) Layers}
 
+\begin{center}
+\begin{tabular}{l c c}
+\hline
+{\bf Layer} & {\bf Output Shape} & {\bf No. of Parameters} \Tstrut\\
+\hline
+Conv2D & (4, 100, 32) & 544\\
+MaxPooling2D & (1, 16, 32) & 0\\
+Flatten & (512) & 0\\
+Dense & (32) & 16416\\
+Dense & (2) & 66\\
+\hline
+\end{tabular}
+\end{center}
+
+\paragraph{Convolutional layer.} The convolutional layer slides
+filters (32, in this case) in order to capture local patterns
+in an image or sequence. Convolution is useful for finding
+features that provide valuable predictive power for
+later layers in the network.
+
+\paragraph{Max Pooling layer.} The max pooling layer has two
+main effects: it reduces the dimensionality of the network, 
+allowing it to converge faster and reduce chance of overfitting.
+At the same time, max pooling also aggregates features that
+are found at the local level, keeping the most salient
+to be processed later in the network.
+
+\paragraph{Flatten layer.} The Flatten layer reshapes the
+two dimensional output of the max pooling layer
+into a single dimensional input that
+can be fed into the fully connected (``Dense'') layers.
+
+\paragraph{Dense(32).} The Dense layer, also known as a
+``fully connected'' layer, attempts to take a global
+consideration of all the lower-level features that were
+extracted earlier in the network, and outputs a series
+of higher level features that use the lower-level
+features as building blocks.
+
+\paragraph{Dense(2).} The final Dense layer is the decision
+layer, outputing whether or not the network classifies
+the sequence as {\it positive} or {\it negative}. This
+layer could also be a single output layer with ``sigmoid''
+activation (rather than ``softmax'').
 
 \subsection*{(c) Hyperparameters}
 
 \begin{center}
 \begin{tabular}{ c  c  c  c  c }
     \hline
-    {\bf Model} & {\bf Hyperparameters} & {\bf Train Accuracy} & 
-    {\bf Test Accuracy} & {\bf Training Time} \Tstrut\\
+    {\bf Model} & {\bf Hyperparameters} & {\bf AC (Train)} & 
+    {\bf AC (Test)} & {\bf Time} \Tstrut\\
     \hline
-    (1) & % model no.
+    {\tt many\_epochs} & % model no.
     \begin{tabular}{c} % hyperparams
         ${\tt epochs} = 300$ \\
         ${\tt batch\_size} = 10$ \\
@@ -347,7 +391,7 @@ if __name__ == "__main__":
     00:13:02 \\ % train time
 
     \hline
-    (2) & % model no.
+    {\tt many\_filters} & % model no.
     \begin{tabular}{c} % hyperparams
         ${\tt epochs} = 50$ \\
         ${\tt batch\_size} = 10$ \\
@@ -360,7 +404,7 @@ if __name__ == "__main__":
     95.60\% & % test acc
     00:35:37 \\ % train time
     \hline
-    (3) & % model no.
+    {\tt wide\_network} & % model no.
     \begin{tabular}{c} % hyperparams
         ${\tt epochs} = 50$ \\
         ${\tt batch\_size} = 10$ \\
@@ -376,7 +420,31 @@ if __name__ == "__main__":
 \end{tabular}
 \end{center}
 
+\paragraph{Many epochs.} This model was trained on 300 epochs, or
+300 runs through the training data. As expected, the accuracy
+on the training data was 100\% (fit perfectly), while the
+accuracy on the test data did not improve significantly (which
+was surprising, as I had expected a decrease in performance).
+This signals, however, that the training data and test data
+are indeed generated from the same distribution, such that
+even fitting the training data exactly allows predictive
+power into the test data.
 
+\paragraph{Many filters.} The idea behind increasing the 
+number of output filters of the Convolutional layer was
+driven by the notion that the Convolutional layer provided
+the more important analysis of the low-level, local patterns
+that characterized {\it positive} sequences from {\it negative} ones.
+This intuition was validated in the increased performance on the
+test set.
+
+\paragraph{Wide network.} In this third setting of hyperparameters,
+the size of the Dense layer was expanded to be particularly wide;
+the idea was to try to allow more higher level features to be
+formed. However, the test accuracy decreased, likely because the number
+of lower-level features was not increased, and so the
+additional width to the Dense layer only increased
+the capacity of the network to overfit.
 
 \subsection*{(d) Architectures}
 
@@ -423,5 +491,33 @@ if __name__ == "__main__":
     \hline
 \end{tabular}
 \end{center}
-    
+
+\paragraph{Deep convolutional network.} Convolutional
+layers are able to capture low-level features, as well as
+local structures in the data; stacking convolutional layers
+allows for higher and more complex patterns to be
+discovered, while also expanding the size of the patterns
+that are considered. As such, we see an increased test set
+accuracy of 98.10\%.
+
+\paragraph{Fully connected network.} The fully connected network
+performed suboptimally compared to the other networks because
+it failed to capture the local structure of sequences
+in its design. Rather, the fully connected network considered
+the entire sequence at once, discovering connections that
+may not exist, or obscuring patterns with the shear
+number of parameters.
+
+\paragraph{Recurrent network.} The image we are feeding into
+the network is actually a sequence of nucleotides. Recurrent
+networks were designed to work well on sequential data. In
+some sense, recurrent networks are like the convolutional
+layers we were using previously, but are more suited for
+arbitrary sequences. Particularly with LSTMs, which
+enables recurrent networks to handle longer sequences,
+using a recurrent model to handle biological sequences
+is particular appropriate. This is also apparent in the
+test accuracy of the model, which is the highest out of
+all the models at 98.3\%.
+
 \end{document}
