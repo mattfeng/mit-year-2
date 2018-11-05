@@ -18,6 +18,9 @@ snp_data = snp_data.set_index("Patient")
 LO = int(sys.argv[1])
 HI = int(sys.argv[2])
 
+# Turns out initializing too large of a
+# DataFrame makes it really slow --
+# likely writing to a swapfile or the like
 R2_scores = pd.DataFrame(
     index=["SNP_{}".format(ix) for ix in range(LO, HI)],
     columns=exp_data.columns)

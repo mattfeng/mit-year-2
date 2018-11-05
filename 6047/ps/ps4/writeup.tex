@@ -2,6 +2,7 @@
 
 \usepackage{minted}
 \usepackage{amsmath}
+\newcommand\Tstrut{\rule{0pt}{2.4ex}}
 
 \title{6.047 Problem Set 4 Writeup}
 \author{Matthew Feng}
@@ -16,31 +17,35 @@
 \section{Simulated GWAS}
 
 \subsection*{(a) $\beta_i$ and SNP odds ratio}
+
 \subsection*{(b), (c)}
 See {\tt simulated\_gwas.py}.
 
 \subsection*{(d) Bonferroni Correction}
 If we are using a significance level of $\alpha = 0.05$, then
-the $p$-value needed for significance accounting for the
-Bonferroni correction is $\frac{0.05}{m}$. This Bonferroni
-correction is necessary because we are conducting
-multiple significance tests simulataneously;
-if we continued to only use $\alpha$, then just by chance
-$m \times 0.05$ SNPs would be statistically significant.
+the $p$-value needed for significance according to the
+Bonferroni correction is $\frac{0.05}{m}$. The Bonferroni
+correction is necessary when performing GWAS
+because we are conducting multiple significance tests
+simultaneously; if we continued to only use $\alpha$, then
+by chance alone $m \times 0.05$ SNPs would be
+statistically significant at the $\alpha = 0.05$ level.
 
 \subsection*{(e) Hyperparameters}
 Accuracy (AC) ($\frac{TP + TN}{TP + TN + FP + FN}$)
 
-\vspace{1em}
+\vspace{0.75em}
 \noindent Precision (PRC) ($\frac{TP}{TP + FP}$)
 
-\vspace{1em}
+\vspace{0.75em}
 \noindent Recall (RCL) ($\frac{TP}{TP + FN}$)
 
 \begin{center}
 \begin{tabular}{c c c c c c c c}
+\hline
 {\bf Hyperparameters} & {\bf TP} & {\bf FP} & {\bf TN} &
-{\bf FN} & {\bf AC} & {\bf PRC} & {\bf RCL}\\
+{\bf FN} & {\bf AC} & {\bf PRC} & {\bf RCL} \Tstrut \\
+
 
 \hline
 \begin{tabular}{c}
@@ -81,6 +86,18 @@ $m = 1000, s = 0.1$
 \hline
 \end{tabular}
 \end{center}
+
+The Bonferroni correction is conservative in categorizing
+SNPs as contributors to the ``affected'' phenotype; that
+is, recall tends to be very low (across all hyperparameter
+settings), while precision is high (typically $1.00$).
+
+As the number of samples increases (i.e. the number of people $n$),
+accuracy, precision, and recall all improve. As the standard
+deviation $s$ of the disease related SNPs increases, so to does
+recall. When the number of SNPs $m$ increases, accuracy increases
+as the model tends to correctly classify negatives, but recall
+remains low.
 
 % =-=-=-=-=-=-=-=-=
 % = Finding eQTLs =
@@ -313,7 +330,8 @@ if __name__ == "__main__":
 \begin{center}
 \begin{tabular}{ c  c  c  c  c }
     \hline
-    {\bf Model} & {\bf Hyperparameters} & {\bf Train Accuracy} & {\bf Test Accuracy} & {\bf Training Time}\\
+    {\bf Model} & {\bf Hyperparameters} & {\bf Train Accuracy} & 
+    {\bf Test Accuracy} & {\bf Training Time} \Tstrut\\
     \hline
     (1) & % model no.
     \begin{tabular}{c} % hyperparams
@@ -365,7 +383,8 @@ if __name__ == "__main__":
 \begin{center}
 \begin{tabular}{ c  c  c  c  c }
     \hline
-    {\bf Model} & {\bf Architecture} & {\bf AC (Train)} & {\bf AC (Test)} & {\bf Time}\\
+    {\bf Model} & {\bf Architecture} & {\bf AC (Train)} &
+    {\bf AC (Test)} & {\bf Time} \Tstrut \\
     \hline
     {\tt deep\_conv\_net} & % model no.
     \begin{tabular}{c} % architecture
