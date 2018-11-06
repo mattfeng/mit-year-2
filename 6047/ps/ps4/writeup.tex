@@ -2,6 +2,9 @@
 
 \usepackage{minted}
 \usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+
 \newcommand\Tstrut{\rule{0pt}{2.4ex}}
 
 \title{6.047 Problem Set 4 Writeup}
@@ -17,9 +20,70 @@
 \section{Simulated GWAS}
 
 \subsection*{(a) $\beta_i$ and SNP odds ratio}
+The SNP's odd ratio ($OR$) is defined as follows:
+\[
+    OR =
+    \dfrac{
+        \dfrac{
+            \mathbb{P}[y > 2\ |\ x_i = 1]
+        }
+        {
+            \mathbb{P}[y < 2\ |\ x_i = 1]
+        }
+    }
+    {
+        \dfrac{
+            \mathbb{P}[y > 2\ |\ x_i = 0]
+        }
+        {
+            \mathbb{P}[y < 2\ |\ x_i = 0]
+        }
+    }
+\]
+
+Assume that we only have one SNP to look at, our model
+becomes $y = \beta x + \epsilon$. We can then make the following
+substitutions:
+
+\begin{align}
+    OR & =
+    \dfrac{
+        \dfrac{
+            \mathbb{P}[\beta + \epsilon > 2\ |\ x_i = 1]
+        }
+        {
+            \mathbb{P}[\beta + \epsilon < 2\ |\ x_i = 1]
+        }
+    }
+    {
+        \dfrac{
+            \mathbb{P}[\epsilon > 2\ |\ x_i = 0]
+        }
+        {
+            \mathbb{P}[\epsilon < 2\ |\ x_i = 0]
+        }
+    }\\
+    \rule{0pt}{7ex} & =
+    \dfrac{
+        \dfrac{
+            1 - \Phi(2 - \beta)
+        }
+        {
+            \Phi(2 - \beta)
+        }
+    }
+    {
+        \dfrac{
+            1 - \Phi(2)
+        }
+        {
+            \Phi(2)
+        }
+    }.
+\end{align}
 
 \subsection*{(b), (c)}
-See {\tt simulated\_gwas.py}.
+See {\tt problem1/simulated\_gwas.py}.
 
 \subsection*{(d) Bonferroni Correction}
 If we are using a significance level of $\alpha = 0.05$, then
@@ -105,6 +169,30 @@ remains low.
 \section{Finding eQTLs}
 
 \subsection*{(a) Principal Components Analysis}
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{./imgs/pca.png}
+\caption{Scatterplot of PCA of the first two principal axes.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{./imgs/pca_clustered.png}
+\caption{Scatterplot of PCA of the first two principal axes,
+colored by cluster using the $k$-means algorithm.}
+\end{figure}
+
+The structure inherent in this population is two clusters,
+likely those who express certain genes and therefore
+have some phenotype and those who do not express those
+genes to a high enough degree for phenotypic visibility.
+The first principal axis captures this variability; the
+remaining axes reveal a Gaussian-like distribution
+within the two clusters, which can cover the range
+of phenotypic expression.
+
+The code used to create the graphs and perform principal
+component analysis and $k$-means clustering
+is in {\tt problem2/PCA Analysis.ipynb}.
+
 
 \subsection*{(b) Finding eQTLs via Linear Regression}
 For every SNP $x_i$, we find the mean and variance
@@ -119,10 +207,139 @@ of $x_i$ to $y_j$ is typical).
 To implement the Bonferroni correction, we test
 each hypothesis that SNP $x_i$ contributes
 to the expression of gene $y_j$ with significance
-of $\alpha / 5000$, where $\alpha = 0.05$ (since we are testing
-$5000$ different genes corresponding to $5000$ different hypotheses).
+of $\alpha / (2500000)$, where $\alpha = 0.0001$
+(since we are testing $5000$ different genes and
+$500$ SNPs, which corresponds with $2500000$ different hypotheses).
+
+\begin{center}
+\begin{tabular}{c c}
+\hline
+{\bf SNP} & {\bf Genes}\Tstrut \\
+\hline
+SNP\_119 &
+\begin{tabular}{l}
+Gene\_AIU28, Gene\_XMY78, Gene\_PDA21, Gene\_LKJ65,\\
+Gene\_TXM58, Gene\_BAF02, Gene\_HXS05, Gene\_FZA89,\\
+Gene\_TYZ45, Gene\_UUH92, Gene\_FZL13, Gene\_LOE40,\\
+Gene\_WFM86, Gene\_LQE83, Gene\_EVL77, Gene\_AGR67,\\
+Gene\_UDL16, Gene\_MQT38, Gene\_FVH87, Gene\_CLI02,\\
+Gene\_YSN10, Gene\_MEN85, Gene\_UJU38, Gene\_AOG34,\\
+Gene\_MST69, Gene\_ZUG63, Gene\_NUY56, Gene\_WNN25,\\
+Gene\_WOZ21, Gene\_OHM64, Gene\_TAY33, Gene\_JNZ42
+\end{tabular}\\
+\hline
+
+SNP\_157 &
+\begin{tabular}{l}
+Gene\_AIU28, Gene\_XMY78, Gene\_PDA21, Gene\_LKJ65,\\
+Gene\_TXM58, Gene\_BAF02, Gene\_HXS05, Gene\_FZA89,\\
+Gene\_TYZ45, Gene\_UUH92, Gene\_FZL13, Gene\_LOE40,\\
+Gene\_WFM86, Gene\_LQE83, Gene\_EVL77, Gene\_AGR67,\\
+Gene\_UDL16, Gene\_MQT38, Gene\_FVH87, Gene\_CLI02,\\
+Gene\_YSN10, Gene\_MEN85, Gene\_UJU38, Gene\_AOG34,\\
+Gene\_MST69, Gene\_ZUG63, Gene\_NUY56, Gene\_WNN25,\\
+Gene\_WOZ21, Gene\_OHM64, Gene\_TAY33, Gene\_JNZ42\\
+\end{tabular}\\
+\hline
+
+SNP\_473 &
+\begin{tabular}{l}
+Gene\_AIU28, Gene\_XMY78, Gene\_PDA21, Gene\_LKJ65,\\
+Gene\_TXM58, Gene\_BAF02, Gene\_HXS05, Gene\_FZA89,\\
+Gene\_TYZ45, Gene\_UUH92, Gene\_FZL13, Gene\_LOE40,\\
+Gene\_WFM86, Gene\_LQE83, Gene\_EVL77, Gene\_AGR67,\\
+Gene\_UDL16, Gene\_MQT38, Gene\_FVH87, Gene\_CLI02,\\
+Gene\_YSN10, Gene\_MEN85, Gene\_UJU38, Gene\_AOG34,\\
+Gene\_MST69, Gene\_ZUG63, Gene\_WNN25, Gene\_WOZ21,\\
+Gene\_OHM64, Gene\_TAY33, Gene\_JNZ42
+\end{tabular}\\
+\hline
+\end{tabular}
+\end{center}
+
+These are likely to be eQTLs because they correlate 
+(based on their $R^2$ statistic)
+with a large number of genes at a very strict
+significance level ($\alpha=0.00001$, with an
+additional correction factor of $2500000$). The Bonferroni
+correction tends to be conservative in attributing
+significance as well, so this increases our belief
+that the SNPs selected are eQTLs.
+
+Below are the plots of the Student's t-distribution
+with $\text{d.f.}=998$ and the locations
+of the $R^2$ value for a particular gene for each of the
+three SNPs identified as eQTLs using the procedure described
+above.
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{./imgs/snp_119.png}
+\caption{SNP\_119 and Gene\_TXM58 correlation.
+Red is the $R^2$ correlation coefficient between the SNP
+and the gene, and the black is the critical value above which
+the $R^2$ value is significant, using $\alpha=0.00001$ with
+a correction factor of $2500000$.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{./imgs/snp_157.png}
+\caption{SNP\_157 and Gene\_OHM64 correlation.
+Red is the $R^2$ correlation coefficient between the SNP
+and the gene, and the black is the critical value above which
+the $R^2$ value is significant, using $\alpha=0.00001$ with
+a correction factor of $2500000$.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{./imgs/snp_473.png}
+\caption{SNP\_473 and Gene\_UJU38 correlation.
+Red is the $R^2$ correlation coefficient between the SNP
+and the gene, and the black is the critical value above which
+the $R^2$ value is significant, using $\alpha=0.00001$ with
+a correction factor of $2500000$.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{./imgs/snp_128.png}
+\caption{SNP\_128 and Gene\_UJU38 correlation. This
+is an example of a correlation that is insignificant.
+Red is the $R^2$ correlation coefficient between the SNP
+and the gene, and the black is the critical value above which
+the $R^2$ value is significant, using $\alpha=0.00001$ with
+a correction factor of $2500000$.}
+\end{figure}
+
+The code used to compute the $R^2$ values and distribute
+the computation across multiple AWS instances is
+in {\tt problem2/gene\_snp.py}.
+
+The code used to find which $R^2$ values were
+significant is in the Python notebook
+{\tt problem2/Finding Significant SNP-Gene pairs.ipynb}.
 
 \subsection*{(c) Additional Datasets}
+
+Two datasets that would have been useful in
+constraining the number of (SNP, Gene) pairs
+that had to be considered are the following:
+
+\paragraph{Minor Allele Frequencies}
+This dataset would tell us what the minor allele frequency
+for each SNP would be (i.e. columns=SNPs, row=MAF).
+This is helpful because we can immediately exclude
+SNPs with a MAF $< 5\%$,
+as those would requires very strong statistical power to
+make meaningful statements.
+
+\paragraph{Hardy-Weinberg Equilibrium Filter.}
+
+This dataset (i.e. columns=SNPs,
+rows=Hardy-Weinberg
+equilibrium proportions) would allow us to discard
+SNPs that violate the Hardy-Weinberg assumptions,
+meaning that it is likely that there is a genotyping
+error or that a certain allele is being selected for (or
+against), and thus should not be used.
 
 % =-=-=-=-=-=-=-=-=-=-=
 % = Convolutional NNs =
