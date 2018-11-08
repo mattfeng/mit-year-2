@@ -62,7 +62,6 @@ def l1_reg(weight_matrix):
 def filter_reg(weights):
     lam = 0
     #your code here
-    val = 
 
     return lam * val
 
