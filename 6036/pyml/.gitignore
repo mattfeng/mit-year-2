@@ -1,0 +1,3 @@
+*.py[aoc]
+__pycache__/
+.DS_Store
