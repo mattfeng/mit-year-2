@@ -1,0 +1,5 @@
+
+> gene set A from "HEART_DISEASE.txt": 111 genes, network-diameter d_A = 1.5545454545454545
+> gene set B from "DIABETES_ALL.txt": 37 genes, network-diameter d_B = 2.027027027027027
+> mean shortest distance between A & B: d_AB = 2.020408163265306 
+> network separation of A & B:          s_AB = 0.229621922479065

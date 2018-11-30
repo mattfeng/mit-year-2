@@ -1,0 +1,5 @@
+
+> gene set A from "BIPO.txt": 70 genes, network-diameter d_A = 1.6666666666666667
+> gene set B from "SCHZ.txt": 0 genes, network-diameter d_B = nan
+> mean shortest distance between A & B: d_AB = nan 
+> network separation of A & B:          s_AB = nan

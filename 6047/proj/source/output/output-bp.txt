@@ -1,0 +1,8 @@
+
+> gene set from "BIPO.txt": 70 genes
+> lcc size   S = 15
+> diameter d_s = 1.6666666666666667
+
+> Random expectation:
+> lcc [rand] = 1.134
+> => z-score of observed lcc = 19.80768212403143

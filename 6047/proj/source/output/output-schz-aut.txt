@@ -1,0 +1,5 @@
+
+> gene set A from "SCHZ.txt": 108 genes, network-diameter d_A = 1.6415094339622642
+> gene set B from "AUT.txt": 60 genes, network-diameter d_B = 1.75
+> mean shortest distance between A & B: d_AB = 1.7530120481927711 
+> network separation of A & B:          s_AB = 0.057257331211638895

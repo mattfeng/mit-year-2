@@ -1,0 +1,8 @@
+
+> gene set from "PD.txt": 20 genes
+> lcc size   S = 17
+> diameter d_s = 1.05
+
+> Random expectation:
+> lcc [rand] = 1.023
+> => z-score of observed lcc = 81.45701617178862

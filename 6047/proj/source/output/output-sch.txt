@@ -1,0 +1,8 @@
+
+> gene set from "SCHZ2.txt": 108 genes
+> lcc size   S = 1
+> diameter d_s = 1.6415094339622642
+
+> Random expectation:
+> lcc [rand] = 1.313
+> => z-score of observed lcc = -0.2322005099343437

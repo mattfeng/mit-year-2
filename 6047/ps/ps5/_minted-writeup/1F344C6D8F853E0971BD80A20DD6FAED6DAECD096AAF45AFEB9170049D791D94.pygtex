@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{derived} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}csv}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}./Derived.txt\PYGZdq{}}\PYG{p}{,} \PYG{n}{sep}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}t}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{hi\PYGZus{}xpehh} \PYG{o}{=} \PYG{p}{(}\PYG{n}{xpehh}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[:,} \PYG{l+m+mi}{4}\PYG{p}{]} \PYG{o}{\PYGZgt{}} \PYG{l+m+mf}{2.0}\PYG{p}{)} \PYG{o}{|}
+           \PYG{p}{(}\PYG{n}{xpehh}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[:,} \PYG{l+m+mi}{5}\PYG{p}{]} \PYG{o}{\PYGZgt{}} \PYG{l+m+mf}{2.0}\PYG{p}{)} \PYG{o}{|}
+           \PYG{p}{(}\PYG{n}{xpehh}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[:,} \PYG{l+m+mi}{6}\PYG{p}{]} \PYG{o}{\PYGZgt{}} \PYG{l+m+mf}{2.0}\PYG{p}{)}
+\PYG{n}{high\PYGZus{}daf} \PYG{o}{=} \PYG{n}{derived}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[:,} \PYG{l+m+mi}{5}\PYG{p}{]} \PYG{o}{\PYGZgt{}} \PYG{l+m+mf}{0.6} \PYG{o}{*} \PYG{l+m+mi}{120}
+\PYG{n}{derived}\PYG{p}{[}\PYG{n}{high\PYGZus{}daf} \PYG{o}{\PYGZam{}} \PYG{n}{hi\PYGZus{}xpehh}\PYG{p}{]}
+\end{Verbatim}

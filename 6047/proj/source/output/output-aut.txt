@@ -1,0 +1,8 @@
+
+> gene set from "AUT.txt": 60 genes
+> lcc size   S = 1
+> diameter d_s = 1.75
+
+> Random expectation:
+> lcc [rand] = 1.079
+> => z-score of observed lcc = -0.17047135169672836

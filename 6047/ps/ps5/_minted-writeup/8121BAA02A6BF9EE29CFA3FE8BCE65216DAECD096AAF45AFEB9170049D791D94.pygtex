@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{xpehh} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}csv}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}./XPEHH.txt\PYGZdq{}}\PYG{p}{,} \PYG{n}{sep}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}t}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{xpehh}\PYG{p}{[(}\PYG{n}{xpehh}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[:,} \PYG{l+m+mi}{4}\PYG{p}{]} \PYG{o}{\PYGZgt{}} \PYG{l+m+mf}{2.0}\PYG{p}{)} \PYG{o}{|}
+      \PYG{p}{(}\PYG{n}{xpehh}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[:,} \PYG{l+m+mi}{5}\PYG{p}{]} \PYG{o}{\PYGZgt{}} \PYG{l+m+mf}{2.0}\PYG{p}{)} \PYG{o}{|}
+      \PYG{p}{(}\PYG{n}{xpehh}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[:,} \PYG{l+m+mi}{6}\PYG{p}{]} \PYG{o}{\PYGZgt{}} \PYG{l+m+mf}{2.0}\PYG{p}{)]}
+\end{Verbatim}
